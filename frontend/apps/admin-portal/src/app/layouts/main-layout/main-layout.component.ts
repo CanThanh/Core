@@ -1,9 +1,12 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, Router } from '@angular/router';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
+import { MenuModule } from 'primeng/menu';
+import { TooltipModule } from 'primeng/tooltip';
+import { BadgeModule } from 'primeng/badge';
 import { AuthService, MenuService } from '@asset-management/auth';
 import { MenuItem } from 'primeng/api';
 import { MenuDto } from '@qlts/api-client';
@@ -18,12 +21,40 @@ import { LanguageSwitcherComponent } from '../../shared/language-switcher/langua
     PanelMenuModule,
     ButtonModule,
     AvatarModule,
+    MenuModule,
+    TooltipModule,
+    BadgeModule,
     LanguageSwitcherComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
 export class MainLayoutComponent {
+  isSidebarCollapsed = signal(false);
+
+  // User dropdown menu items
+  userMenuItems: MenuItem[] = [
+    {
+      label: 'Profile',
+      icon: 'pi pi-user',
+      command: () => this.goToProfile()
+    },
+    {
+      label: 'Settings',
+      icon: 'pi pi-cog',
+      command: () => this.goToSettings()
+    },
+    {
+      separator: true
+    },
+    {
+      label: 'Logout',
+      icon: 'pi pi-sign-out',
+      styleClass: 'text-danger',
+      command: () => this.logout()
+    }
+  ];
+
   // Computed signal that converts MenuDto to PrimeNG MenuItem
   menuItems = computed(() => {
     const menus = this.menuService.menus();
@@ -51,9 +82,22 @@ export class MainLayoutComponent {
         icon: menu.icon || 'pi pi-circle',
         routerLink: menu.route ? [menu.route] : undefined,
         items: hasChildren ? this.convertToMenuItems(menu.children) : undefined,
-        expanded: false
+        expanded: false,
+        title: menu.name // Add tooltip
       };
     });
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarCollapsed.update(collapsed => !collapsed);
+  }
+
+  goToProfile(): void {
+    this.router.navigate(['/profile']);
+  }
+
+  goToSettings(): void {
+    this.router.navigate(['/settings']);
   }
 
   logout(): void {
