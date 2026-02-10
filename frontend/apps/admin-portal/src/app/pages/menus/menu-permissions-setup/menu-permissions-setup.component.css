@@ -1,0 +1,30 @@
+.menu-permissions-setup-container {
+  padding: 20px;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  padding: 0.75rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td.text-center {
+  text-align: center;
+}

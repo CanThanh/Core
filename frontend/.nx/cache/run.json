@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx serve admin-portal",
+    "startTime": "2026-02-10T07:11:00.186Z",
+    "endTime": "2026-02-10T08:03:05.030Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "admin-portal:serve:development",
+      "target": "serve",
+      "projectName": "admin-portal",
+      "hash": "14248649704619077832",
+      "startTime": "2026-02-10T07:11:00.198Z",
+      "endTime": "2026-02-10T08:03:05.029Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<div class="role-menu-permissions-container">
+  <p-toast></p-toast>
+
+  <p-card header="Role Menu Permissions">
+    <div class="role-selector">
+      <label for="roleDropdown">Select Role:</label>
+      <p-dropdown
+        id="roleDropdown"
+        [options]="roles"
+        [(ngModel)]="selectedRoleId"
+        placeholder="Select a role"
+        (onChange)="onRoleChange()"
+        [style]="{'width': '300px'}"
+      ></p-dropdown>
+    </div>
+
+    <div class="menu-permissions-table" *ngIf="selectedRoleId">
+      <p-treeTable
+        [value]="menuNodes"
+        [loading]="loading"
+        [scrollable]="true"
+        scrollHeight="600px"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Menu Name</th>
+            <th>View</th>
+            <th>Create</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+          <tr [ttRow]="rowNode">
+            <td>
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+              {{ rowData.name }}
+            </td>
+            <td>
+              <p-checkbox
+                [(ngModel)]="rowData.permissions.view"
+                [binary]="true"
+              ></p-checkbox>
+            </td>
+            <td>
+              <p-checkbox
+                [(ngModel)]="rowData.permissions.create"
+                [binary]="true"
+              ></p-checkbox>
+            </td>
+            <td>
+              <p-checkbox
+                [(ngModel)]="rowData.permissions.edit"
+                [binary]="true"
+              ></p-checkbox>
+            </td>
+            <td>
+              <p-checkbox
+                [(ngModel)]="rowData.permissions.delete"
+                [binary]="true"
+              ></p-checkbox>
+            </td>
+          </tr>
+        </ng-template>
+      </p-treeTable>
+
+      <div class="actions">
+        <p-button
+          label="Save Permissions"
+          icon="pi pi-save"
+          (onClick)="savePermissions()"
+          [loading]="loading"
+        ></p-button>
+      </div>
+    </div>
+  </p-card>
+</div>

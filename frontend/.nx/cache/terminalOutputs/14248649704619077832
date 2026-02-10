@@ -1,0 +1,968 @@
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJLE3MDF.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.34 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-F6UF2SRV.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m777.78 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-IBLV7B7O.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-47YRMIAS.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IB4VSBTM.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m15.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-QLO4JEQO.js[39m[37m  [2m | [22m[2medit-user-component[22m             [2m | [22m [36m14.94 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IR4XXJJB.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-2UYXXPTI.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-K54W5SJY.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-3MHO4OOL.js[39m[37m  [2m | [22m[2mcreate-user-component[22m           [2m | [22m [36m13.13 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FHTL2TCC.js[[39m[37m39m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-RPKO5NYO.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-JMMW5PFT.js[39m[37m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-7UX36FDZ.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-66K4FBAZ.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-XCLS6UAI.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [3.099 seconds][39m
+[37m[39m
+[37mWatch mode enabled. Watching for file changes...[39m
+[37mNOTE: Raw file sizes do not reflect development server per-request transformations.[39m
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m[36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m[36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m[36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-N2AM7225.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m[36m15.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-HWRCQE4G.js[39m[37m  [2m | [22m[2medit-user-component[22m             [2m | [22m[36m14.94 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m[36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m[36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m[36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-45QPVFKP.js[39m[37m  [2m | [22m[2mcreate-user-component[22m           [2m | [22m[36m13.13 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[39m[37m  [2m | [22m[2massets-list-component[22m           [2m | [22m[36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m[36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[39m[37m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m[36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-BR5VRPYS.js[39m[37m[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m[36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.682 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-HPPGAUOJ.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m15.20 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.336 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-6PR6QHQA.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m15.63 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.227 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-XNCVKAVA.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m17.25 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.360 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-TVPDEX6S.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m22.35 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.414 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.298 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG9: Property 'navigateToCreate' does not exist on type 'UsersListComponent'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/users-list/users-list.component.html:7:81:[39m[22m
+[1m[31m[37m      7 │ ...eate User" icon="pi pi-plus" (click)="[32mnavigateToCreate[37m()"></button>[39m[22m
+[1m[31m        ╵                                          [32m~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UsersListComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/users-list/users-list.component.ts:39:15:[39m[22m
+[1m[31m[37m      39 │   templateUrl: [32m'./users-list.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m778.10 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LFKT7D4G.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m22.26 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-HWRCQE4G.js[39m[37m  [2m | [22m[2medit-user-component[22m             [2m | [22m [36m14.94 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-45QPVFKP.js[39m[37m  [2m | [22m[2mcreate-user-component[22m           [2m | [22m [36m13.13 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[[39m[37m39m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[39m[37m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-BR5VRPYS.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.255 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-SZIGLVDU.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m22.27 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.302 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-YOTTZNSO.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m32.40 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.312 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-4LVEEZKD.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m32.66 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.279 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.325 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS-992003: No suitable injection token for parameter 'router' of class 'UsersListComponent'.[39m[22m
+[1m[31m  Consider using the @Inject decorator to specify an injection token.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/users-list/users-list.component.ts:66:12:[39m[22m
+[1m[31m[37m      66 │     private [32mrouter[37m: Router,[39m[22m
+[1m[31m         ╵             [32m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  This type does not have a value, so it cannot be used as injection token.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/users-list/users-list.component.ts:66:20:[39m[22m
+[1m[31m[37m      66 │     private router: [32mRouter[37m,[39m[22m
+[1m[31m         ╵                     [32m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Router'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/users-list/users-list.component.ts:66:20:[39m[22m
+[1m[31m[37m      66 │     private router: [32mRouter[37m,[39m[22m
+[1m[31m         ╵                     [32m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.45 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m778.10 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-RL6KQSKG.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m32.49 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-HWRCQE4G.js[39m[37m  [2m | [22m[2medit-user-component[22m             [2m | [22m [36m14.94 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-45QPVFKP.js[39m[37m  [2m | [22m[2mcreate-user-component[22m           [2m | [22m [36m13.13 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[[39m[37m39m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[39m[37m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-BR5VRPYS.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.284 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.350 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/create-user/create-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:51:44:[39m[22m
+[1m[31m[37m      51 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/create-user/create-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:53:36:[39m[22m
+[1m[31m[37m      53 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/edit-user/edit-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:56:44:[39m[22m
+[1m[31m[37m      56 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/edit-user/edit-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:58:36:[39m[22m
+[1m[31m[37m      58 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.302 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/users-list/users-list.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:46:44:[39m[22m
+[1m[31m[37m      46 │ ...=> import([32m'./pages/users/users-list/users-list.component'[37m).then...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/users-list/users-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:48:36:[39m[22m
+[1m[31m[37m      48 │ ...=> import([32m'./pages/users/users-list/users-list.component'[37m).then...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/create-user/create-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:51:44:[39m[22m
+[1m[31m[37m      51 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/create-user/create-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:53:36:[39m[22m
+[1m[31m[37m      53 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/edit-user/edit-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:56:44:[39m[22m
+[1m[31m[37m      56 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pag[39m[22m[1m[31mes/users/edit-user/edit-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:58:36:[39m[22m
+[1m[31m[37m      58 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.140 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/users-list/users-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:48:36:[39m[22m
+[1m[31m[37m      48 │ ...=> import([32m'./pages/users/users-list/users-list.component'[37m).then...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/create-user/create-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:51:44:[39m[22m
+[1m[31m[37m      51 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/create-user/create-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:53:36:[39m[22m
+[1m[31m[37m      53 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/edit-user/edit-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:56:44:[39m[22m
+[1m[31m[37m      56 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/edit-user/edit-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:58:36:[39m[22m
+[1m[31m[37m      58 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0[39m[22m[1m[31mm[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.182 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/users-list/users-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:48:36:[39m[22m
+[1m[31m[37m      48 │ ...=> import([32m'./pages/users/users-list/users-list.component'[37m).then...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/create-user/create-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:51:44:[39m[22m
+[1m[31m[37m      51 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/create-user/create-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:53:36:[39m[22m
+[1m[31m[37m      53 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/edit-user/edit-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:56:44:[39m[22m
+[1m[31m[37m      56 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/edit-user/edit-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:58:36:[39m[22m
+[1m[31m[37m      58 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0[39m[22m[1m[31mm[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.106 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/users-list/users-list.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:48:36:[39m[22m
+[1m[31m[37m      48 │ ...=> import([32m'./pages/users/users-list/users-list.component'[37m).then...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/create-user/create-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:51:44:[39m[22m
+[1m[31m[37m      51 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/create-user/create-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:53:36:[39m[22m
+[1m[31m[37m      53 │ ...=> import([32m'./pages/users/create-user/create-user.component'[37m).th...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "./pages/users/edit-user/edit-user.component"[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:56:44:[39m[22m
+[1m[31m[37m      56 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module './pages/users/edit-user/edit-user.component' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.routes.ts:58:36:[39m[22m
+[1m[31m[37m      58 │ ...=> import([32m'./pages/users/edit-user/edit-user.component'[37m).then(m...[39m[22m
+[1m[31m         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0[39m[22m[1m[31mm[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.700 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModel' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModel' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:82:10:[39m[22m
+[1m[31m[37m      82 │           [32m[(ngModel)]="selectedRoleIds"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModelOptions' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModelOptions' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:83:10:[39m[22m
+[1m[31m[37m      83 │           [32m[ngModelOptions]="{standalone: true}"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users[39m[22m[1m[31m/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModel' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModel' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:95:10:[39m[22m
+[1m[31m[37m      95 │           [32m[(ngModel)]="selectedGroupIds"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModelOptions' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModelOptions' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:96:10:[39m[22m
+[1m[31m[37m      96 │           [32m[ngModelOptions]="{standalone: [39m[22m[1m[31mtrue}"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.308 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModel' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModel' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:82:10:[39m[22m
+[1m[31m[37m      82 │           [32m[(ngModel)]="selectedRoleIds"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModelOptions' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModelOptions' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:83:10:[39m[22m
+[1m[31m[37m      83 │           [32m[ngModelOptions]="{standalone: true}"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users[39m[22m[1m[31m/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModel' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModel' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:95:10:[39m[22m
+[1m[31m[37m      95 │           [32m[(ngModel)]="selectedGroupIds"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModelOptions' since it isn't a known property of 'p-multiSelect'.[39m[22m
+[1m[31m1. If 'p-multiSelect' is an Angular component and it has 'ngModelOptions' input, then verify that it is included in the '@Component.imports' of this component.[39m[22m
+[1m[31m2. If 'p-multiSelect' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.html:96:10:[39m[22m
+[1m[31m[37m      96 │           [32m[ngModelOptions]="{standalone: [39m[22m[1m[31mtrue}"[37m[39m[22m
+[1m[31m         ╵           [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component UserDialogComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:26:15:[39m[22m
+[1m[31m[37m      26 │   templateUrl: [32m'./user-dialog.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.08 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m777.73 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-4MOLLOZW.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m35.19 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[39m[37m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[[39m[37m39m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-BR5VRPYS.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.258 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.08 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-IDJGPEVM.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m35.19 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.422 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.274 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.[39m[22m
+[1m[31m  Value is of type '[CommonModule, ReactiveFormsModule, FormsModule, DialogModule, ButtonModule, InputTextModule, PasswordModule, (not statically analyzable), MultiSelectModule]'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:16:11:[39m[22m
+[1m[31m[37m      16 │   imports: [32m[[37m[39m[22m
+[1m[31m         ╵            [32m^[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'CheckboxModule'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/users/user-dialog/user-dialog.component.ts:24:4:[39m[22m
+[1m[31m[37m      24 │     [32mCheckboxModule[37m,[39m[22m
+[1m[31m         ╵     [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.08 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m777.73 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-4MR6U3L2.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m35.23 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[39m[37m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[[39m[37m39m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-BR5VRPYS.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m10.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.255 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.08 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-UG6J3QUZ.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m35.33 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.369 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.08 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-LYSF62GB.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m35.34 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.198 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[39m
+[37mNo output file changes.[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.191 seconds][39m
+[37m[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[39m
+[37mNo output file changes.[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.126 seconds][39m
+[37m[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.638 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.283 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.250 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.192 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.239 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.184 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.302 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.192 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.227 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.203 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.222 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.189 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.193 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.206 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.179 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.181 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 3.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp, './assets/i18n/', '.json'[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.352 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 1.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'HttpLoaderFactory'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:25:22:[39m[22m
+[1m[31m[37m      25 │           useFactory: [32mHttpLoaderFactory[37m,[39m[22m
+[1m[31m         ╵                       [32m~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.158 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2554: Expected 0 arguments, but got 1.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:11:33:[39m[22m
+[1m[31m[37m      11 │   return new TranslateHttpLoader([32mhttp[37m);[39m[22m
+[1m[31m         ╵                                  [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.351 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2561: Object literal may only specify known properties, but 'defaultLang' does not exist in type 'RootTranslateServiceConfig'. Did you mean to write 'useDefaultLang'?[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:17:6:[39m[22m
+[1m[31m[37m      17 │       [32mdefaultLang[37m: 'vi',[39m[22m
+[1m[31m         ╵       [32m~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37mApplication bundle generation failed. [0.158 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:17:6:[39m[22m
+[1m[31m[37m      17 │       [32museDefaultLang[37m: 'vi',[39m[22m
+[1m[31m         ╵       [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  The expected type comes from property 'useDefaultLang' which is declared here on type 'RootTranslateServiceConfig'[39m[22m
+[1m[31m[39m[22m
+[1m[31m    node_modules/@ngx-translate/core/index.d.ts:455:4:[39m[22m
+[1m[31m[37m      455 │     [32museDefaultLang[37m?: boolean;[39m[22m
+[1m[31m          ╵     [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KJQVNXOI.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-KNNLNT7K.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.90 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m4.42 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m778.07 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-BZTSK3UW.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m38.44 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T7BASTUR.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-ME7YZC4L.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.18 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-B2AHSGN7.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VL2E5PDE.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-H53TN4JE.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IW76ZI6J.js[39m[37m  [2m | [22m[2mmain-layout-component[22m           [2m | [22m [36m13.44 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-YVPHO7PY.js[39m[37m  [2m | [22m[2massets-list-component[22m           [2m | [22m [36m12.56 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-T4GHNDKC.js[[39m[37m39m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-42UBW62Q.js[39m[37m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-IAJRMNIE.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FNR2DN3P.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m6.79 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LSIWP2RA.js[39m[37m  [2m | [22m[2mno-access-component[22m             [2m | [22m  [36m3.84 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.240 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                [2m | [22m [36m4.42 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m               [2m | [22m[1mRaw size[22m[39m
+[37m[32mchunk-7FNVOEZC.js[39m[37m  [2m | [22m[2musers-list-component[22m[2m | [22m[36m23.72 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.181 seconds][39m
+[37m[39m
+[37mPage reload sent to client(s).[39m

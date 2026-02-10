@@ -1,0 +1,21 @@
+<div class="no-access-container">
+  <p-card styleClass="no-access-card">
+    <div class="content">
+      <i class="pi pi-lock error-icon"></i>
+      <h1>{{ 'noAccess.title' | translate }}</h1>
+      <p class="message">
+        {{ 'noAccess.message' | translate }}<br>
+        {{ 'noAccess.contactAdmin' | translate }}
+      </p>
+      <div class="actions">
+        <button
+          pButton
+          type="button"
+          [label]="'noAccess.goBack' | translate"
+          icon="pi pi-home"
+          (click)="goBack()"
+        ></button>
+      </div>
+    </div>
+  </p-card>
+</div>

@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.forgot-password-link {
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-password-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.forgot-password-link a:hover {
+  text-decoration: underline;
+}
+
+.form-actions {
+  margin-bottom: 1.5rem;
+}
+
+.register-link {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+}
+
+.register-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+:host ::ng-deep {
+  .p-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+
+  .p-card .p-card-header {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 2rem 2rem 1rem;
+    background: white;
+    color: #333;
+  }
+
+  .p-card .p-card-body {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .p-inputtext,
+  .p-password input {
+    border-radius: 8px;
+    padding: 0.75rem;
+  }
+
+  .p-button {
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-weight: 600;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+}

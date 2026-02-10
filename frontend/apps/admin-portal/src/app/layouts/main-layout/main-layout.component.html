@@ -1,0 +1,46 @@
+<div class="layout-wrapper">
+  <!-- Sidebar -->
+  <aside class="layout-sidebar">
+    <div class="sidebar-header">
+      <h2 class="app-title">
+        <i class="pi pi-box"></i>
+        Asset Management
+      </h2>
+      <div class="language-switcher-container">
+        <app-language-switcher></app-language-switcher>
+      </div>
+    </div>
+
+    <div class="sidebar-menu">
+      <p-panelMenu [model]="menuItems()" styleClass="w-full"></p-panelMenu>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <p-avatar
+          [label]="authService.currentUser()?.fullName?.charAt(0) || 'U'"
+          styleClass="mr-2"
+          size="large"
+          shape="circle"
+        ></p-avatar>
+        <div class="user-details">
+          <div class="user-name">{{ authService.currentUser()?.fullName }}</div>
+          <div class="user-email">{{ authService.currentUser()?.username }}</div>
+        </div>
+      </div>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-sign-out"
+        label="Logout"
+        class="p-button-text p-button-danger w-full"
+        (click)="logout()"
+      ></button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="layout-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

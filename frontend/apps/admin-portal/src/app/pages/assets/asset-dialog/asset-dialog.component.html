@@ -1,0 +1,164 @@
+<p-dialog
+  [(visible)]="visible"
+  [header]="getDialogHeader()"
+  [modal]="true"
+  [style]="{ width: '700px' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onClose()">
+
+  <form [formGroup]="assetForm" (ngSubmit)="onSave()">
+    <div class="p-fluid">
+      <div class="form-grid">
+        <div class="field col-6">
+          <label for="code">Mã tài sản *</label>
+          <input
+            pInputText
+            id="code"
+            formControlName="code"
+            placeholder="Nhập mã tài sản"
+            [class.ng-invalid]="assetForm.get('code')?.invalid && assetForm.get('code')?.touched" />
+          <small class="p-error" *ngIf="assetForm.get('code')?.invalid && assetForm.get('code')?.touched">
+            Mã tài sản là bắt buộc
+          </small>
+        </div>
+
+        <div class="field col-6">
+          <label for="name">Tên tài sản *</label>
+          <input
+            pInputText
+            id="name"
+            formControlName="name"
+            placeholder="Nhập tên tài sản"
+            [class.ng-invalid]="assetForm.get('name')?.invalid && assetForm.get('name')?.touched" />
+          <small class="p-error" *ngIf="assetForm.get('name')?.invalid && assetForm.get('name')?.touched">
+            Tên tài sản là bắt buộc
+          </small>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-6">
+          <label for="categoryId">Danh mục *</label>
+          <p-dropdown
+            id="categoryId"
+            formControlName="categoryId"
+            [options]="categories()"
+            placeholder="Chọn danh mục"
+            [showClear]="true"
+            styleClass="w-full">
+          </p-dropdown>
+          <small class="p-error" *ngIf="assetForm.get('categoryId')?.invalid && assetForm.get('categoryId')?.touched">
+            Danh mục là bắt buộc
+          </small>
+        </div>
+
+        <div class="field col-6" *ngIf="mode === 'edit'">
+          <label for="status">Trạng thái *</label>
+          <p-dropdown
+            id="status"
+            formControlName="status"
+            [options]="assetStatusOptions"
+            placeholder="Chọn trạng thái"
+            styleClass="w-full">
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-6">
+          <label for="manufacturer">Nhà sản xuất</label>
+          <input
+            pInputText
+            id="manufacturer"
+            formControlName="manufacturer"
+            placeholder="Nhập nhà sản xuất" />
+        </div>
+
+        <div class="field col-6">
+          <label for="serialNumber">Số serial</label>
+          <input
+            pInputText
+            id="serialNumber"
+            formControlName="serialNumber"
+            placeholder="Nhập số serial" />
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-6">
+          <label for="purchasePrice">Giá mua (VND) *</label>
+          <p-inputNumber
+            id="purchasePrice"
+            formControlName="purchasePrice"
+            mode="currency"
+            currency="VND"
+            locale="vi-VN"
+            [minFractionDigits]="0"
+            [maxFractionDigits]="0">
+          </p-inputNumber>
+        </div>
+
+        <div class="field col-6">
+          <label for="purchaseDate">Ngày mua *</label>
+          <p-calendar
+            id="purchaseDate"
+            formControlName="purchaseDate"
+            [showIcon]="true"
+            dateFormat="dd/mm/yy"
+            styleClass="w-full">
+          </p-calendar>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field col-6">
+          <label for="depreciationRate">Tỷ lệ khấu hao (%) *</label>
+          <p-inputNumber
+            id="depreciationRate"
+            formControlName="depreciationRate"
+            [min]="0"
+            [max]="100"
+            suffix="%">
+          </p-inputNumber>
+        </div>
+
+        <div class="field col-6">
+          <label for="location">Vị trí</label>
+          <input
+            pInputText
+            id="location"
+            formControlName="location"
+            placeholder="Nhập vị trí" />
+        </div>
+      </div>
+
+      <div class="field" *ngIf="mode === 'edit'">
+        <label for="isActive">Status</label>
+        <p-dropdown
+          id="isActive"
+          formControlName="isActive"
+          [options]="activeStatusOptions"
+          placeholder="Select status"
+          styleClass="w-full">
+        </p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <button
+        pButton
+        type="button"
+        label="Hủy"
+        class="p-button-text"
+        (click)="onClose()">
+      </button>
+      <button
+        pButton
+        type="submit"
+        label="Lưu"
+        [disabled]="assetForm.invalid">
+      </button>
+    </div>
+  </form>
+</p-dialog>

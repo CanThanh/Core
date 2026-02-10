@@ -1,0 +1,91 @@
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37mApplication bundle generation failed. [3.353 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2305: Module '"@asset-management/api-client"' has no exported member 'ApiClientService'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:4:9:[39m[22m
+[1m[31m[37m      4 │ import { [32mApiClientService[37m, LoginRequest, RegisterRequest, UserInfo ...[39m[22m
+[1m[31m        ╵          [32m~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'accessToken' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:25:46:[39m[22m
+[1m[31m[37m      25 │ ...enService.saveTokens(response.[32maccessToken[37m, response.refreshToken);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'refreshToken' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:25:68:[39m[22m
+[1m[31m[37m      25 │ ...enService.saveTokens(response.accessToken, response.[32mrefreshToken[37m);[39m[22m
+[1m[31m         ╵                                                        [32m~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'user' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:26:44:[39m[22m
+[1m[31m[37m      26 │         this.tokenService.saveUser(response.[32muser[37m);[39m[22m
+[1m[31m         ╵                                             [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'user' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:27:38:[39m[22m
+[1m[31m[37m      27 │         this.currentUser.set(response.[32muser[37m);[39m[22m
+[1m[31m         ╵                                       [32m~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'accessToken' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:53:46:[39m[22m
+[1m[31m[37m  [39m[22m[1m[31m    53 │ ...enService.saveTokens(response.[32maccessToken[37m, response.refreshToken);[39m[22m
+[1m[31m         ╵                                  [32m~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'refreshToken' does not exist on type 'unknown'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    libs/auth/src/lib/auth.service.ts:53:68:[39m[22m
+[1m[31m[37m      53 │ ...enService.saveTokens(response.accessToken, response.[32mrefreshToken[37m);[39m[22m
+[1m[31m         ╵                                                        [32m~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[37mWatch mode enabled. Watching for file changes...[39m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[1mInitial chunk files[22m[2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mstyles.css[39m[37m         [2m | [22m[2mstyles[22m                          [2m | [22m[36m663.90 kB[39m[37m[2m | [22m[39m
+[37m[32mpolyfills.js[39m[37m       [2m | [22m[2mpolyfills[22m                       [2m | [22m [36m90.20 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-DYDWO65G.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m [36m10.17 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-VIZUWTOT.js[39m[37m  [2m | [22m[2m-[22m                               [2m | [22m  [36m8.87 kB[39m[37m[2m | [22m[39m
+[37m[32mmain.js[39m[37m            [2m | [22m[2mmain[22m                            [2m | [22m  [36m3.93 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37m[1m [22m                  [2m | [22m[1mInitial total[22m                   [2m | [22m[1m777.07 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                           [2m | [22m [1mRaw size[22m[39m
+[37m[32mchunk-3SFJXU5I.js[39m[37m  [2m | [22m[2mmenus-list-component[22m            [2m | [22m [36m24.66 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-OPN7MECR.js[39m[37m  [2m | [22m[2mgroups-list-component[22m           [2m | [22m [36m20.14 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-NUHIVNS7.js[39m[37m  [2m | [22m[2musers-list-component[22m            [2m | [22m [36m15.17 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-6XMJLP7Y.js[39m[37m  [2m | [22m[2medit-user-component[22m             [2m | [22m [36m14.94 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-U74O2AIQ.js[39m[37m  [2m | [22m[2mrole-menu-permissions-component[22m [2m | [22m [36m14.61 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-NMOCA3TS.js[39m[37m  [2m | [22m[2mmenu-permissions-setup-component[22m[2m | [22m [36m13.65 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-XYJOECPA.js[39m[37m  [2m | [22m[2mreset-password-component[22m        [2m | [22m [36m13.46 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-OTCPEKG5.js[39m[37m  [2m | [22m[2mregister-component[22m              [2m | [22m [36m12.29 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-M5R6FCCD.js[[39m[37m39m  [2m | [22m[2mforgot-password-component[22m       [2m | [22m [36m11.87 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-LKQNBGHO.js[39m[37m  [2m | [22m[2mdashboard-component[22m             [2m | [22m  [36m9.07 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-QEKJ2NDJ.js[39m[37m  [2m | [22m[2massets-list-component[22m           [2m | [22m  [36m8.68 kB[39m[37m[2m | [22m[39m
+[37m[32mchunk-FZWW5U4X.js[39m[37m  [2m | [22m[2mlogin-component[22m                 [2m | [22m  [36m8.06 kB[39m[37m[2m | [22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.714 seconds][39m
+[37m[39m
+[37mNOTE: Raw file sizes do not reflect development server per-request transformations.[39m
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[33m❯[39m Changes detected. Rebuilding...
+[32m✔[39m Changes detected. Rebuilding...
+[37m[39m
+[37mNo output file changes.[39m
+[37m[39m
+[37mApplication bundle generation complete. [0.404 seconds][39m
+[37m[39m

@@ -1,0 +1,113 @@
+<div class="register-container">
+  <p-card [header]="'auth.register' | translate" [style]="{ width: '100%', maxWidth: '480px' }">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <p-message
+        *ngIf="errorMessage()"
+        severity="error"
+        [text]="errorMessage()!"
+        styleClass="w-full mb-3"
+      ></p-message>
+
+      <p-message
+        *ngIf="successMessage()"
+        severity="success"
+        [text]="successMessage()!"
+        styleClass="w-full mb-3"
+      ></p-message>
+
+      <div class="form-field">
+        <label for="username">{{ 'auth.username' | translate }} *</label>
+        <input
+          id="username"
+          type="text"
+          pInputText
+          formControlName="username"
+          [placeholder]="'auth.enterUsernameMin' | translate"
+          class="w-full"
+        />
+        <small class="error-text" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+          {{ 'auth.usernameRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="email">{{ 'auth.email' | translate }} *</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          formControlName="email"
+          [placeholder]="'auth.enterEmail' | translate"
+          class="w-full"
+        />
+        <small class="error-text" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          {{ 'auth.emailRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="fullName">{{ 'auth.fullName' | translate }} *</label>
+        <input
+          id="fullName"
+          type="text"
+          pInputText
+          formControlName="fullName"
+          [placeholder]="'auth.enterFullName' | translate"
+          class="w-full"
+        />
+        <small class="error-text" *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched">
+          {{ 'auth.fullNameRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="phoneNumber">{{ 'auth.phoneNumber' | translate }}</label>
+        <input
+          id="phoneNumber"
+          type="text"
+          pInputText
+          formControlName="phoneNumber"
+          [placeholder]="'auth.enterPhoneNumber' | translate"
+          class="w-full"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="password">{{ 'auth.password' | translate }} *</label>
+        <p-password
+          id="password"
+          formControlName="password"
+          [toggleMask]="true"
+          styleClass="w-full"
+          inputStyleClass="w-full"
+          [placeholder]="'auth.enterPasswordMin' | translate"
+          [feedback]="true"
+          [promptLabel]="'auth.choosePassword' | translate"
+          [weakLabel]="'auth.weak' | translate"
+          [mediumLabel]="'auth.medium' | translate"
+          [strongLabel]="'auth.strong' | translate"
+        ></p-password>
+        <small class="error-text" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          {{ 'auth.passwordRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button
+          pButton
+          type="submit"
+          [label]="'auth.registerButton' | translate"
+          icon="pi pi-user-plus"
+          [loading]="loading()"
+          [disabled]="registerForm.invalid"
+          class="w-full"
+        ></button>
+      </div>
+
+      <div class="login-link">
+        <span>{{ 'auth.haveAccount' | translate }} </span>
+        <a routerLink="/login">{{ 'auth.loginLink' | translate }}</a>
+      </div>
+    </form>
+  </p-card>
+</div>

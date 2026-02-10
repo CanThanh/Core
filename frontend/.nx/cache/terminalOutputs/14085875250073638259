@@ -1,0 +1,35 @@
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37m[1mInitial chunk files[22m  [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m[39m
+[37m[32mstyles-WQINXURL.css[39m[37m  [2m | [22m[2mstyles[22m               [2m | [22m[36m519.98 kB[39m[37m[2m | [22m               [36m35.53 kB[39m[37m[39m
+[37m[32mchunk-I57WNYA7.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m[36m207.88 kB[39m[37m[2m | [22m               [36m58.14 kB[39m[37m[39m
+[37m[32mchunk-7M6QYRYG.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m89.98 kB[39m[37m[2m | [22m               [36m22.32 kB[39m[37m[39m
+[37m[32mmain-ENPGKVTJ.js[39m[37m     [2m | [22m[2mmain[22m                 [2m | [22m [36m61.33 kB[39m[37m[2m | [22m               [36m16.56 kB[39m[37m[39m
+[37m[32mpolyfills-FFHMD2TL.js[39m[37m[2m | [22m[2mpolyfills[22m            [2m | [22m [36m34.52 kB[39m[37m[2m | [22m               [36m11.28 kB[39m[37m[39m
+[37m[32mchunk-4YRY4IP2.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m  [36m4.35 kB[39m[37m[2m | [22m                [36m1.08 kB[39m[37m[39m
+[37m[32mchunk-3463CY7M.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m  [36m4.25 kB[39m[37m[2m | [22m                [36m1.23 kB[39m[37m[39m
+[37m[39m
+[37m[1m [22m                    [2m | [22m[1mInitial total[22m        [2m | [22m[1m922.29 kB[22m[2m | [22m              [1m146.14 kB[22m[39m
+[37m[39m
+[37m[1mLazy chunk files[22m     [2m | [22m[1mNames[22m                [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m[39m
+[37m[32mchunk-BPXAFWP3.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m[36m183.89 kB[39m[37m[2m | [22m               [36m36.13 kB[39m[37m[39m
+[37m[32mchunk-S2X2LELT.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m[36m111.60 kB[39m[37m[2m | [22m               [36m23.08 kB[39m[37m[39m
+[37m[32mchunk-23JSFWFC.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m66.44 kB[39m[37m[2m | [22m               [36m13.53 kB[39m[37m[39m
+[37m[32mchunk-ZU543AIP.js[39m[37m    [2m | [22m[2medit-user-[39m[37mcomponent[22m  [2m | [22m [36m64.46 kB[39m[37m[2m | [22m               [36m14.15 kB[39m[37m[39m
+[37m[32mchunk-NRUAUHUO.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m47.92 kB[39m[37m[2m | [22m               [36m12.57 kB[39m[37m[39m
+[37m[32mchunk-5UTRLSJ5.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m41.03 kB[39m[37m[2m | [22m               [36m10.13 kB[39m[37m[39m
+[37m[32mchunk-FLXGDYUF.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m38.21 kB[39m[37m[2m | [22m                [36m8.58 kB[39m[37m[39m
+[37m[32mchunk-SK7MVRWJ.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m33.00 kB[39m[37m[2m | [22m                [36m8.21 kB[39m[37m[39m
+[37m[32mchunk-UNUGZMST.js[39m[37m    [2m | [22m[2mdashboard-component[22m  [2m | [22m [36m25.67 kB[39m[37m[2m | [22m                [36m6.60 kB[39m[37m[39m
+[37m[32mchunk-Y3O5ZOKY.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m20.06 kB[39m[37m[2m | [22m                [36m5.12 kB[39m[37m[39m
+[37m[32mchunk-RSKMEES3.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m19.72 kB[39m[37m[2m | [22m                [36m6.10 kB[39m[37m[39m
+[37m[32mchunk-C3Q35ARV.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m13.41 kB[39m[37m[2m | [22m                [36m2.96 kB[39m[37m[39m
+[37m[32mchunk-ASU56C7T.js[39m[37m    [2m | [22m[2m-[22m                    [2m | [22m [36m13.40 kB[39m[37m[2m | [22m                [36m3.73 kB[39m[37m[39m
+[37m[32mchunk-GKU3GOKM.js[39m[37m    [2m | [22m[2mgroups-list-component[22m[2m | [22m [36m12.06 kB[39m[37m[2m | [22m                [36m3.65 kB[39m[37m[39m
+[37m[32mchunk-C5DQQZSK.js[39m[37m    [2m | [22m[2mmenus-list-component[22m [2m | [22m [36m11.95 kB[39m[37m[2m | [22m                [36m3.79 kB[39m[37m[39m
+[37m[2m...and 15 more lazy chunks files. Use "--verbose" to show all the files.[22m[39m
+[37m[39m
+[37mApplication bundle generation complete. [5.877 seconds][39m
+[37m[39m
+[37mOutput location: E:\QLTS\frontend\dist\apps\admin-portal[39m
+[37m[39m

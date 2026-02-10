@@ -1,0 +1,150 @@
+<div class="groups-list-container">
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+
+  <div class="header">
+    <h2>{{ 'groups.title' | translate }}</h2>
+    <button pButton type="button" [label]="'groups.createGroup' | translate" icon="pi pi-plus" (click)="showCreateDialog()"></button>
+  </div>
+
+  <div class="search-bar">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input
+        pInputText
+        type="text"
+        [placeholder]="'common.searchPlaceholder' | translate"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+      />
+    </span>
+    <button pButton type="button" [label]="'common.search' | translate" icon="pi pi-search" (click)="onSearch()"></button>
+  </div>
+
+  <p-table
+    [value]="groups()"
+    [lazy]="true"
+    [paginator]="true"
+    [rows]="pageSize"
+    [totalRecords]="totalRecords()"
+    [loading]="loading()"
+    (onLazyLoad)="onPageChange($event)"
+    [rowsPerPageOptions]="[10, 20, 50]"
+    styleClass="p-datatable-gridlines"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ 'common.name' | translate }}</th>
+        <th>{{ 'common.description' | translate }}</th>
+        <th>{{ 'groups.memberCount' | translate }}</th>
+        <th>{{ 'common.status' | translate }}</th>
+        <th>{{ 'common.createdAt' | translate }}</th>
+        <th>{{ 'common.actions' | translate }}</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-group>
+      <tr>
+        <td><strong>{{ group.name }}</strong></td>
+        <td>{{ group.description || '-' }}</td>
+        <td>
+          <p-tag [value]="group.memberCount.toString() + ' members'" severity="info"></p-tag>
+        </td>
+        <td>
+          <p-tag [value]="getStatusLabel(group.isActive)" [severity]="getStatusSeverity(group.isActive)"></p-tag>
+        </td>
+        <td>{{ group.createdAt | date:'short' }}</td>
+        <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-text p-button-info"
+            (click)="showEditDialog(group)"
+            [pTooltip]="'common.edit' | translate"
+          ></button>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-text p-button-danger"
+            (click)="deleteGroup(group.id, group.name)"
+            [pTooltip]="'common.delete' | translate"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6" style="text-align: center">{{ 'groups.noGroupsFound' | translate }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- Create/Edit Dialog -->
+  <p-dialog
+    [(visible)]="displayDialog"
+    [header]="getDialogHeader()"
+    [modal]="true"
+    [style]="{ width: '500px' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <form [formGroup]="groupForm">
+      <div class="form-field">
+        <label for="name">{{ 'common.name' | translate }} *</label>
+        <input
+          id="name"
+          type="text"
+          pInputText
+          formControlName="name"
+          [placeholder]="'groups.namePlaceholder' | translate"
+          style="width: 100%"
+        />
+        <small class="error-message" *ngIf="groupForm.get('name')?.invalid && groupForm.get('name')?.touched">
+          {{ 'common.nameRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="description">{{ 'common.description' | translate }}</label>
+        <textarea
+          id="description"
+          pInputTextarea
+          formControlName="description"
+          [placeholder]="'common.descriptionPlaceholder' | translate"
+          rows="3"
+          style="width: 100%"
+        ></textarea>
+      </div>
+
+      <div class="form-field" *ngIf="dialogMode === 'edit'">
+        <p-checkbox
+          formControlName="isActive"
+          binary="true"
+          [label]="'common.active' | translate"
+        ></p-checkbox>
+      </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <button
+        pButton
+        type="button"
+        [label]="'common.cancel' | translate"
+        icon="pi pi-times"
+        class="p-button-text"
+        (click)="displayDialog = false"
+      ></button>
+      <button
+        pButton
+        type="button"
+        [label]="'common.save' | translate"
+        icon="pi pi-check"
+        [disabled]="groupForm.invalid"
+        (click)="saveGroup()"
+      ></button>
+    </ng-template>
+  </p-dialog>
+</div>

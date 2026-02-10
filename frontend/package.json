@@ -1,0 +1,44 @@
+{
+  "name": "@asset-management/source",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx nx serve admin-portal",
+    "build": "npx nx build admin-portal",
+    "test": "npx nx test",
+    "lint": "npx nx lint",
+    "generate-api-client": "npx swagger-typescript-api -p http://localhost:5000/swagger/v1/swagger.json -o libs/api-client/src/lib/generated -n api.ts"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.11",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.0",
+    "@angular-devkit/core": "^18.2.0",
+    "@angular-devkit/schematics": "^18.2.0",
+    "@angular/cli": "^18.2.0",
+    "@angular/compiler-cli": "^18.2.0",
+    "@nx/angular": "20.2.2",
+    "@nx/workspace": "20.2.2",
+    "@types/node": "^18.16.9",
+    "nx": "20.2.2",
+    "swagger-typescript-api": "^13.0.22",
+    "typescript": "~5.5.4"
+  }
+}

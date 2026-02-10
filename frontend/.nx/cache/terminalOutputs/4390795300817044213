@@ -1,0 +1,17 @@
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37mApplication bundle generation failed. [4.705 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type 'string' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/app.config.ts:17:6:[39m[22m
+[1m[31m[37m      17 │       [32museDefaultLang[37m: 'vi',[39m[22m
+[1m[31m         ╵       [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  The expected type comes from property 'useDefaultLang' which is declared here on type 'RootTranslateServiceConfig'[39m[22m
+[1m[31m[39m[22m
+[1m[31m    node_modules/@ngx-translate/core/index.d.ts:455:4:[39m[22m
+[1m[31m[37m      455 │     [32museDefaultLang[37m?: boolean;[39m[22m
+[1m[31m          ╵     [32m~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m

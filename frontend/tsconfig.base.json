@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@asset-management/api-client": ["libs/api-client/src/index.ts"],
+      "@asset-management/auth": ["libs/auth/src/index.ts"],
+      "@asset-management/ui": ["libs/ui/src/index.ts"],
+      "@asset-management/state": ["libs/state/src/index.ts"],
+      "@qlts/api-client": ["libs/api-client/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

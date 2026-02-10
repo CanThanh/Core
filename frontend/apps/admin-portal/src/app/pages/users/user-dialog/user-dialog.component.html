@@ -1,0 +1,131 @@
+<p-dialog
+  [(visible)]="visible"
+  [header]="getDialogHeader()"
+  [modal]="true"
+  [style]="{ width: '600px' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onClose()">
+
+  <form [formGroup]="userForm" (ngSubmit)="onSave()">
+    <div class="p-fluid">
+      <div class="field">
+        <label for="username">Username *</label>
+        <input
+          pInputText
+          id="username"
+          formControlName="username"
+          placeholder="Enter username"
+          [disabled]="mode === 'edit'"
+          [class.ng-invalid]="userForm.get('username')?.invalid && userForm.get('username')?.touched" />
+        <small class="p-error" *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">
+          Username is required (min 3 characters)
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email *</label>
+        <input
+          pInputText
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter email"
+          [class.ng-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched" />
+        <small class="p-error" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+          Valid email is required
+        </small>
+      </div>
+
+      <div class="field" *ngIf="mode === 'create'">
+        <label for="password">Password *</label>
+        <p-password
+          id="password"
+          formControlName="password"
+          placeholder="Enter password"
+          [toggleMask]="true"
+          [feedback]="false"
+          styleClass="w-full">
+        </p-password>
+        <small class="p-error" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+          Password is required (min 6 characters)
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="fullName">Full Name *</label>
+        <input
+          pInputText
+          id="fullName"
+          formControlName="fullName"
+          placeholder="Enter full name"
+          [class.ng-invalid]="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched" />
+        <small class="p-error" *ngIf="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched">
+          Full name is required (min 2 characters)
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          pInputText
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="Enter phone number" />
+      </div>
+
+      <div class="field">
+        <label for="roles">Roles</label>
+        <p-multiSelect
+          id="roles"
+          [options]="availableRoles()"
+          [(ngModel)]="selectedRoleIds"
+          [ngModelOptions]="{standalone: true}"
+          placeholder="Select roles"
+          [showHeader]="false"
+          styleClass="w-full">
+        </p-multiSelect>
+      </div>
+
+      <div class="field">
+        <label for="groups">Groups</label>
+        <p-multiSelect
+          id="groups"
+          [options]="availableGroups()"
+          [(ngModel)]="selectedGroupIds"
+          [ngModelOptions]="{standalone: true}"
+          placeholder="Select groups"
+          [showHeader]="false"
+          styleClass="w-full">
+        </p-multiSelect>
+      </div>
+
+      <div class="field" *ngIf="mode === 'edit'">
+        <label for="status">Status</label>
+        <p-dropdown
+          id="status"
+          formControlName="isActive"
+          [options]="statusOptions"
+          placeholder="Select status"
+          styleClass="w-full">
+        </p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <button
+        pButton
+        type="button"
+        label="Cancel"
+        class="p-button-text"
+        (click)="onClose()">
+      </button>
+      <button
+        pButton
+        type="submit"
+        label="Save"
+        [disabled]="userForm.invalid">
+      </button>
+    </div>
+  </form>
+</p-dialog>

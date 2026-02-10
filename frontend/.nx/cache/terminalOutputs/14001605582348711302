@@ -1,0 +1,17 @@
+[33m❯[39m Building...
+[32m✔[39m Building...
+[37mApplication bundle generation failed. [4.575 seconds][39m
+[37m[39m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/dashboard/dashboard.component.html:82:0:[39m[22m
+[1m[31m[37m      82 │ [32m</div>[37m[39m[22m
+[1m[31m         ╵ [32m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  Error occurs in the template of component DashboardComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m    apps/admin-portal/src/app/pages/dashboard/dashboard.component.ts:12:15:[39m[22m
+[1m[31m[37m      12 │   templateUrl: [32m'./dashboard.component.html'[37m,[39m[22m
+[1m[31m         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m

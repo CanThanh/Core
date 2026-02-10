@@ -1,0 +1,81 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>{{ 'dashboard.title' | translate }}</h1>
+    <p class="welcome-text">{{ 'dashboard.welcomeBack' | translate }}, {{ authService.currentUser()?.fullName }}</p>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="stats-grid">
+        <p-card styleClass="stat-card">
+          <div class="stat-content">
+            <i class="pi pi-box stat-icon text-blue-500"></i>
+            <div class="stat-details">
+              <div class="stat-value">0</div>
+              <div class="stat-label">{{ 'dashboard.totalAssets' | translate }}</div>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card styleClass="stat-card">
+          <div class="stat-content">
+            <i class="pi pi-check-circle stat-icon text-green-500"></i>
+            <div class="stat-details">
+              <div class="stat-value">0</div>
+              <div class="stat-label">{{ 'dashboard.inUse' | translate }}</div>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card styleClass="stat-card">
+          <div class="stat-content">
+            <i class="pi pi-wrench stat-icon text-orange-500"></i>
+            <div class="stat-details">
+              <div class="stat-value">0</div>
+              <div class="stat-label">{{ 'dashboard.underMaintenance' | translate }}</div>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card styleClass="stat-card">
+          <div class="stat-content">
+            <i class="pi pi-times-circle stat-icon text-red-500"></i>
+            <div class="stat-details">
+              <div class="stat-value">0</div>
+              <div class="stat-label">{{ 'dashboard.broken' | translate }}</div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <p-card [header]="'dashboard.quickActions' | translate">
+          <div class="action-buttons">
+            <button
+              pButton
+              type="button"
+              [label]="'dashboard.manageAssets' | translate"
+              icon="pi pi-box"
+              class="p-button-lg"
+              routerLink="/assets"
+            ></button>
+            <button
+              pButton
+              type="button"
+              [label]="'dashboard.manageUsers' | translate"
+              icon="pi pi-users"
+              class="p-button-lg p-button-secondary"
+              routerLink="/users"
+            ></button>
+            <button
+              pButton
+              type="button"
+              [label]="'dashboard.manageGroups' | translate"
+              icon="pi pi-sitemap"
+              class="p-button-lg p-button-help"
+              routerLink="/groups"
+            ></button>
+          </div>
+        </p-card>
+  </div>
+</div>

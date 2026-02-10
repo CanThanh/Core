@@ -1,0 +1,132 @@
+<div class="card">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <h2>{{ 'roles.title' | translate }}</h2>
+    <button pButton type="button" [label]="'roles.createRole' | translate" icon="pi pi-plus" (click)="showCreateDialog()"></button>
+  </div>
+
+  <p-table
+    [value]="roles()"
+    [loading]="loading()"
+    responsiveLayout="scroll"
+    styleClass="p-datatable-sm">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 30%">{{ 'common.name' | translate }}</th>
+        <th style="width: 40%">{{ 'common.description' | translate }}</th>
+        <th style="width: 10%">{{ 'common.status' | translate }}</th>
+        <th style="width: 20%">{{ 'common.actions' | translate }}</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-role>
+      <tr>
+        <td>{{ role.name }}</td>
+        <td>{{ role.description || 'N/A' }}</td>
+        <td>
+          <p-tag
+            [value]="getStatusLabel(role.isActive)"
+            [severity]="getStatusSeverity(role.isActive)">
+          </p-tag>
+        </td>
+        <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-key"
+            class="p-button-rounded p-button-text p-button-info mr-2"
+            [pTooltip]="'roles.managePermissions' | translate"
+            (click)="managePermissions(role.id)">
+          </button>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-text p-button-success mr-2"
+            [pTooltip]="'common.edit' | translate"
+            (click)="showEditDialog(role)">
+          </button>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-text p-button-danger"
+            [pTooltip]="'common.delete' | translate"
+            (click)="deleteRole(role.id, role.name)">
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="4" class="text-center">{{ 'roles.noRolesFound' | translate }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="displayDialog"
+  [header]="getDialogHeader()"
+  [modal]="true"
+  [style]="{ width: '500px' }"
+  [draggable]="false"
+  [resizable]="false">
+
+  <form [formGroup]="roleForm" (ngSubmit)="saveRole()">
+    <div class="p-fluid">
+      <div class="field">
+        <label for="name">{{ 'common.name' | translate }} *</label>
+        <input
+          pInputText
+          id="name"
+          formControlName="name"
+          [placeholder]="'roles.namePlaceholder' | translate"
+          [class.ng-invalid]="roleForm.get('name')?.invalid && roleForm.get('name')?.touched" />
+        <small class="p-error" *ngIf="roleForm.get('name')?.invalid && roleForm.get('name')?.touched">
+          {{ 'common.nameRequired' | translate }}
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="description">{{ 'common.description' | translate }}</label>
+        <textarea
+          pInputTextarea
+          id="description"
+          formControlName="description"
+          [placeholder]="'common.descriptionPlaceholder' | translate"
+          rows="3">
+        </textarea>
+      </div>
+
+      <div class="field-checkbox" *ngIf="dialogMode === 'edit'">
+        <p-checkbox
+          formControlName="isActive"
+          [binary]="true"
+          inputId="isActive">
+        </p-checkbox>
+        <label for="isActive">{{ 'common.active' | translate }}</label>
+      </div>
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <button
+        pButton
+        type="button"
+        [label]="'common.cancel' | translate"
+        class="p-button-text"
+        (click)="displayDialog = false">
+      </button>
+      <button
+        pButton
+        type="submit"
+        [label]="'common.save' | translate"
+        [disabled]="roleForm.invalid">
+      </button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>
