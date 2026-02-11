@@ -46,6 +46,10 @@ yarn-error.log
 dist/
 tmp/
 .angular/
+.nx/
+
+# Claude
+.claude/
 
 # Logs
 logs/
