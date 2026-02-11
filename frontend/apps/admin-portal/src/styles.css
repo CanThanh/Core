@@ -10,3 +10,27 @@ body {
   margin: 0;
   font-family: var(--font-family);
 }
+
+/* ========================================
+   Dialog Modern - chỉ override visual
+   PrimeFlex: p-fluid, field, formgrid grid, col-6
+   ======================================== */
+.dialog-modern.p-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.dialog-modern .p-dialog-header {
+  background: var(--surface-0);
+  border-bottom: 1px solid var(--surface-200);
+}
+
+.dialog-modern .p-dialog-header .p-dialog-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.dialog-modern .p-dialog-content {
+  padding: 1.5rem;
+}

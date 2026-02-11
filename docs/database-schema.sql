@@ -206,6 +206,7 @@ COMMENT='User ↔ Group (Many-to-Many)';
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS GroupPermissions (
+    Id CHAR(36) NOT NULL DEFAULT (UUID()) COMMENT 'Entity có property Id nhưng PK là composite',
     GroupId CHAR(36) NOT NULL,
     PermissionId CHAR(36) NOT NULL,
     AssignedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -253,6 +254,7 @@ CREATE TABLE IF NOT EXISTS MenuPermissions (
     PermissionId CHAR(36) NOT NULL,
     PermissionType VARCHAR(20) NOT NULL COMMENT 'View, Create, Edit, Delete',
     CreatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt DATETIME,
     FOREIGN KEY (MenuId) REFERENCES Menus(Id) ON DELETE CASCADE,
     FOREIGN KEY (PermissionId) REFERENCES Permissions(Id) ON DELETE CASCADE,
     UNIQUE KEY UK_MenuPermission_MenuId_PermissionId_Type (MenuId, PermissionId, PermissionType),
@@ -442,116 +444,151 @@ CROSS JOIN Permissions p
 WHERE r.Name = 'SuperAdmin';
 
 /*
- * Bước 6: Tạo Root Menus (Menu gốc)
- * ParentId = NULL nghĩa là menu gốc
- * DisplayOrder xác định thứ tự hiển thị trên UI (1, 2, 3, 4, 5...)
+ * Bước 6: Tạo Menu nhiều cấp
+ *
+ * CẤU TRÚC MENU:
+ * ├── Tổng quan              (/dashboard)         pi pi-home
+ * ├── Quản lý Tài sản        (parent)             pi pi-briefcase
+ * │   └── Danh sách Tài sản  (/assets)            pi pi-list
+ * ├── Nhân sự                (parent)             pi pi-users
+ * │   ├── Người dùng         (/users)             pi pi-user
+ * │   └── Nhóm / Phòng ban   (/groups)            pi pi-sitemap
+ * └── Hệ thống               (parent)             pi pi-cog
+ *     ├── Vai trò             (/roles)             pi pi-shield
+ *     ├── Quản lý Menu        (/menus)             pi pi-bars
+ *     └── Phân quyền Menu     (/roles/menu-permissions)  pi pi-key
  */
+
+-- Cấp 1: Menu gốc (ParentId = NULL)
 INSERT INTO Menus (Id, Name, Icon, Route, DisplayOrder, ParentId, IsActive, CreatedAt) VALUES
-(UUID(), 'Dashboard', 'pi pi-home', '/dashboard', 1, NULL, TRUE, NOW()),
-(UUID(), 'Assets', 'pi pi-briefcase', '/assets', 2, NULL, TRUE, NOW()),
-(UUID(), 'Users', 'pi pi-users', '/users', 3, NULL, TRUE, NOW()),
-(UUID(), 'Groups', 'pi pi-sitemap', '/groups', 4, NULL, TRUE, NOW()),
-(UUID(), 'Settings', 'pi pi-cog', NULL, 5, NULL, TRUE, NOW());
+(UUID(), 'Tổng quan', 'pi pi-home', '/dashboard', 1, NULL, TRUE, NOW()),
+(UUID(), 'Quản lý Tài sản', 'pi pi-briefcase', NULL, 2, NULL, TRUE, NOW()),
+(UUID(), 'Nhân sự', 'pi pi-users', NULL, 3, NULL, TRUE, NOW()),
+(UUID(), 'Hệ thống', 'pi pi-cog', NULL, 4, NULL, TRUE, NOW());
 
-/*
- * Bước 7: Tạo Sub-menus cho Settings
- * Lấy ID của menu Settings và tạo các menu con
- * ParentId = @settingsId nghĩa là menu con của Settings
- */
-SET @settingsId = (SELECT Id FROM Menus WHERE Name = 'Settings' LIMIT 1);
+-- Cấp 2: Menu con của "Quản lý Tài sản"
+SET @assetParentId = (SELECT Id FROM Menus WHERE Name = 'Quản lý Tài sản' LIMIT 1);
 
 INSERT INTO Menus (Id, Name, Icon, Route, DisplayOrder, ParentId, IsActive, CreatedAt) VALUES
-(UUID(), 'Roles', 'pi pi-shield', '/roles', 1, @settingsId, TRUE, NOW()),
-(UUID(), 'Menus Management', 'pi pi-bars', '/menus', 2, @settingsId, TRUE, NOW()),
-(UUID(), 'Role Menu Permissions', 'pi pi-key', '/roles/menu-permissions', 3, @settingsId, TRUE, NOW());
+(UUID(), 'Danh sách Tài sản', 'pi pi-list', '/assets', 1, @assetParentId, TRUE, NOW());
+
+-- Cấp 2: Menu con của "Nhân sự"
+SET @hrParentId = (SELECT Id FROM Menus WHERE Name = 'Nhân sự' LIMIT 1);
+
+INSERT INTO Menus (Id, Name, Icon, Route, DisplayOrder, ParentId, IsActive, CreatedAt) VALUES
+(UUID(), 'Người dùng', 'pi pi-user', '/users', 1, @hrParentId, TRUE, NOW()),
+(UUID(), 'Nhóm / Phòng ban', 'pi pi-sitemap', '/groups', 2, @hrParentId, TRUE, NOW());
+
+-- Cấp 2: Menu con của "Hệ thống"
+SET @systemParentId = (SELECT Id FROM Menus WHERE Name = 'Hệ thống' LIMIT 1);
+
+INSERT INTO Menus (Id, Name, Icon, Route, DisplayOrder, ParentId, IsActive, CreatedAt) VALUES
+(UUID(), 'Vai trò', 'pi pi-shield', '/roles', 1, @systemParentId, TRUE, NOW()),
+(UUID(), 'Quản lý Menu', 'pi pi-bars', '/menus', 2, @systemParentId, TRUE, NOW()),
+(UUID(), 'Phân quyền Menu', 'pi pi-key', '/roles/menu-permissions', 3, @systemParentId, TRUE, NOW());
 
 /*
- * Bước 8: Gán permissions cho menu Dashboard
- * User phải có permission "Users.View" để thấy menu Dashboard
- * PermissionType = 'View' nghĩa là quyền xem menu
+ * Bước 7b: Tạo AssetCategories (Phân loại tài sản)
+ * Các loại tài sản cơ bản trong hệ thống
  */
-INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
-SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m
-CROSS JOIN Permissions p
-WHERE m.Name = 'Dashboard' AND p.Name = 'Users.View';
+INSERT INTO AssetCategories (Id, Name, Description, CreatedAt) VALUES
+(UUID(), 'Máy tính & Laptop', 'Máy tính để bàn, laptop, máy trạm', NOW()),
+(UUID(), 'Thiết bị văn phòng', 'Máy in, máy scan, máy photocopy', NOW()),
+(UUID(), 'Thiết bị mạng', 'Router, switch, access point, server', NOW()),
+(UUID(), 'Phương tiện vận tải', 'Xe ô tô, xe máy, xe tải', NOW()),
+(UUID(), 'Nội thất', 'Bàn, ghế, tủ, kệ', NOW()),
+(UUID(), 'Thiết bị y tế', 'Máy đo, dụng cụ y tế', NOW()),
+(UUID(), 'Thiết bị điện', 'Máy phát điện, UPS, điều hòa', NOW());
 
 /*
- * Bước 9: Gán đầy đủ CRUD permissions cho menu Assets
- * Menu Assets có 4 loại quyền:
- * - View: Xem menu Assets
- * - Create: Tạo tài sản mới
- * - Edit: Sửa tài sản
- * - Delete: Xóa tài sản
+ * Bước 8: Gán permissions cho các menu
+ * Mỗi menu cần gán CRUD permissions tương ứng
+ * PermissionType: View, Create, Edit, Delete
  */
-INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
-SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Assets' AND p.Name = 'Assets.View'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Create', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Assets' AND p.Name = 'Assets.Create'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Assets' AND p.Name = 'Assets.Edit'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Assets' AND p.Name = 'Assets.Delete';
 
-/* Bước 10: Gán permissions cho menu Users */
+-- 8a: Menu "Tổng quan" - chỉ cần View
 INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
 SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Users' AND p.Name = 'Users.View'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Create', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Users' AND p.Name = 'Users.Create'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Users' AND p.Name = 'Users.Edit'
-UNION ALL
-SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Users' AND p.Name = 'Users.Delete';
+FROM Menus m CROSS JOIN Permissions p
+WHERE m.Name = 'Tổng quan' AND p.Name = 'Users.View';
 
-/* Bước 11: Gán permissions cho menu Groups */
+-- 8b: Menu "Danh sách Tài sản" - CRUD đầy đủ
 INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
 SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Groups' AND p.Name = 'Groups.View'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Danh sách Tài sản' AND p.Name = 'Assets.View'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Create', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Groups' AND p.Name = 'Groups.Create'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Danh sách Tài sản' AND p.Name = 'Assets.Create'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Groups' AND p.Name = 'Groups.Edit'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Danh sách Tài sản' AND p.Name = 'Assets.Edit'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Groups' AND p.Name = 'Groups.Delete';
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Danh sách Tài sản' AND p.Name = 'Assets.Delete';
 
-/* Bước 12: Gán permissions cho sub-menu Roles (thuộc Settings) */
+-- 8c: Menu "Người dùng" - CRUD đầy đủ
 INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
 SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Roles' AND p.Name = 'Roles.View'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Người dùng' AND p.Name = 'Users.View'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Create', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Roles' AND p.Name = 'Roles.Create'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Người dùng' AND p.Name = 'Users.Create'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Roles' AND p.Name = 'Roles.Edit'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Người dùng' AND p.Name = 'Users.Edit'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Roles' AND p.Name = 'Roles.Delete';
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Người dùng' AND p.Name = 'Users.Delete';
 
-/* Bước 13: Gán permissions cho sub-menu Menus Management */
+-- 8d: Menu "Nhóm / Phòng ban" - CRUD đầy đủ
 INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
 SELECT UUID(), m.Id, p.Id, 'View', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Menus Management' AND p.Name = 'Menus.View'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Nhóm / Phòng ban' AND p.Name = 'Groups.View'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Create', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Menus Management' AND p.Name = 'Menus.Create'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Nhóm / Phòng ban' AND p.Name = 'Groups.Create'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Menus Management' AND p.Name = 'Menus.Edit'
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Nhóm / Phòng ban' AND p.Name = 'Groups.Edit'
 UNION ALL
 SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
-FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Menus Management' AND p.Name = 'Menus.Delete';
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Nhóm / Phòng ban' AND p.Name = 'Groups.Delete';
+
+-- 8e: Menu "Vai trò" - CRUD đầy đủ
+INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
+SELECT UUID(), m.Id, p.Id, 'View', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Vai trò' AND p.Name = 'Roles.View'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Create', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Vai trò' AND p.Name = 'Roles.Create'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Vai trò' AND p.Name = 'Roles.Edit'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Vai trò' AND p.Name = 'Roles.Delete';
+
+-- 8f: Menu "Quản lý Menu" - CRUD đầy đủ
+INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
+SELECT UUID(), m.Id, p.Id, 'View', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Quản lý Menu' AND p.Name = 'Menus.View'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Create', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Quản lý Menu' AND p.Name = 'Menus.Create'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Quản lý Menu' AND p.Name = 'Menus.Edit'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Delete', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Quản lý Menu' AND p.Name = 'Menus.Delete';
+
+-- 8g: Menu "Phân quyền Menu" - View + Edit
+INSERT INTO MenuPermissions (Id, MenuId, PermissionId, PermissionType, CreatedAt)
+SELECT UUID(), m.Id, p.Id, 'View', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Phân quyền Menu' AND p.Name = 'Roles.View'
+UNION ALL
+SELECT UUID(), m.Id, p.Id, 'Edit', NOW()
+FROM Menus m CROSS JOIN Permissions p WHERE m.Name = 'Phân quyền Menu' AND p.Name = 'Roles.Edit';
 
 /* Bước 14: Tạo Groups (Nhóm người dùng - Phòng ban)
  * Ví dụ: Phòng IT, Phòng Kỹ thuật, Phòng Hành chính
@@ -575,14 +612,14 @@ CROSS JOIN Permissions p
 WHERE p.Name IN ('Users.View', 'Assets.View', 'Assets.Create', 'Assets.Edit');
 
 /* Bước 16: Gán menu permissions cho Group "Phòng CNTT"
- * Phòng CNTT thấy được: Dashboard, Assets, Users
+ * Phòng CNTT thấy được: Tổng quan, Danh sách Tài sản, Người dùng
  */
 INSERT INTO GroupMenuPermissions (Id, GroupId, MenuId, PermissionId, PermissionType, AssignedAt)
 SELECT UUID(), g.Id, m.Id, p.Id, 'View', NOW()
 FROM (SELECT @itGroupId AS Id) g
 CROSS JOIN Menus m
 CROSS JOIN Permissions p
-WHERE m.Name IN ('Dashboard', 'Assets', 'Users') AND p.Name IN ('Users.View', 'Assets.View');
+WHERE m.Name IN ('Tổng quan', 'Danh sách Tài sản', 'Người dùng') AND p.Name IN ('Users.View', 'Assets.View');
 
 /* Bước 17: Gán permissions cho Group "Phòng Kỹ thuật"
  * Phòng Kỹ thuật có quyền: Assets.View, Assets.Edit
@@ -594,14 +631,14 @@ CROSS JOIN Permissions p
 WHERE p.Name IN ('Assets.View', 'Assets.Edit');
 
 /* Bước 18: Gán menu permissions cho Group "Phòng Kỹ thuật"
- * Phòng Kỹ thuật chỉ thấy: Assets
+ * Phòng Kỹ thuật chỉ thấy: Danh sách Tài sản
  */
 INSERT INTO GroupMenuPermissions (Id, GroupId, MenuId, PermissionId, PermissionType, AssignedAt)
 SELECT UUID(), g.Id, m.Id, p.Id, 'View', NOW()
 FROM (SELECT @techGroupId AS Id) g
 CROSS JOIN Menus m
 CROSS JOIN Permissions p
-WHERE m.Name = 'Assets' AND p.Name = 'Assets.View';
+WHERE m.Name = 'Danh sách Tài sản' AND p.Name = 'Assets.View';
 
 /* Bước 19: Gán permissions cho Group "Phòng Hành chính"
  * Phòng Hành chính có quyền: Users.View, Groups.View
@@ -613,14 +650,14 @@ CROSS JOIN Permissions p
 WHERE p.Name IN ('Users.View', 'Groups.View');
 
 /* Bước 20: Gán menu permissions cho Group "Phòng Hành chính"
- * Phòng Hành chính thấy: Dashboard, Users, Groups
+ * Phòng Hành chính thấy: Tổng quan, Người dùng, Nhóm / Phòng ban
  */
 INSERT INTO GroupMenuPermissions (Id, GroupId, MenuId, PermissionId, PermissionType, AssignedAt)
 SELECT UUID(), g.Id, m.Id, p.Id, 'View', NOW()
 FROM (SELECT @adminGroupId AS Id) g
 CROSS JOIN Menus m
 CROSS JOIN Permissions p
-WHERE m.Name IN ('Dashboard', 'Users', 'Groups') AND p.Name IN ('Users.View', 'Groups.View');
+WHERE m.Name IN ('Tổng quan', 'Người dùng', 'Nhóm / Phòng ban') AND p.Name IN ('Users.View', 'Groups.View');
 
 -- ============================================
 -- HOÀN THÀNH! Kiểm tra dữ liệu đã seed
@@ -645,6 +682,8 @@ SELECT 'UserGroups', COUNT(*) FROM UserGroups
 UNION ALL
 SELECT 'GroupPermissions', COUNT(*) FROM GroupPermissions
 UNION ALL
+SELECT 'AssetCategories', COUNT(*) FROM AssetCategories
+UNION ALL
 SELECT 'Menus', COUNT(*) FROM Menus
 UNION ALL
 SELECT 'MenuPermissions', COUNT(*) FROM MenuPermissions
@@ -664,6 +703,23 @@ SELECT '2. Start frontend: cd frontend && npm start' AS '';
 SELECT '3. Login at http://localhost:4200/login' AS '';
 SELECT '4. Verify dynamic menu appears based on permissions' AS '';
 SELECT '========================================' AS '';
+
+-- ============================================
+-- PHẦN 3: MIGRATION (cho database đã tồn tại)
+-- ============================================
+-- Nếu database đã được tạo trước khi có các cột mới,
+-- chạy các lệnh ALTER bên dưới để đồng bộ schema.
+-- Nếu tạo mới từ đầu thì KHÔNG cần chạy phần này.
+-- ============================================
+
+/*
+-- MenuPermissions: Thiếu cột UpdatedAt (BaseEntity)
+-- Đây là nguyên nhân lỗi không lưu được quyền menu
+ALTER TABLE MenuPermissions ADD COLUMN UpdatedAt DATETIME NULL;
+
+-- GroupPermissions: Thiếu cột Id (Entity có property Id, PK vẫn là composite)
+ALTER TABLE GroupPermissions ADD COLUMN Id CHAR(36) NOT NULL DEFAULT (UUID()) FIRST;
+*/
 
 -- ============================================
 -- MAINTENANCE QUERIES (Chạy định kỳ)

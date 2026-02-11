@@ -5,58 +5,63 @@
   [style]="{ width: '500px' }"
   [draggable]="false"
   [resizable]="false"
-  (onHide)="onClose()">
+  (onHide)="onClose()"
+  styleClass="dialog-modern">
 
   <form [formGroup]="roleForm" (ngSubmit)="onSave()">
     <div class="p-fluid">
       <div class="field">
-        <label for="name">Name *</label>
+        <label for="name">{{ 'common.name' | translate }} <span class="p-error">*</span></label>
         <input
           pInputText
           id="name"
           formControlName="name"
-          placeholder="Enter role name"
+          [placeholder]="'roles.enterRoleName' | translate"
           [class.ng-invalid]="roleForm.get('name')?.invalid && roleForm.get('name')?.touched" />
         <small class="p-error" *ngIf="roleForm.get('name')?.invalid && roleForm.get('name')?.touched">
-          Name is required (min 2 characters)
+          {{ 'roles.nameRequired' | translate }}
         </small>
       </div>
 
       <div class="field">
-        <label for="description">Description</label>
+        <label for="description">{{ 'common.description' | translate }}</label>
         <textarea
           pInputTextarea
           id="description"
           formControlName="description"
-          placeholder="Enter role description"
+          [placeholder]="'roles.enterRoleDescription' | translate"
           rows="3">
         </textarea>
       </div>
 
-      <div class="field" *ngIf="mode === 'edit'">
-        <label for="status">Status</label>
+      <div class="field">
+        <label for="status">{{ 'common.status' | translate }}</label>
         <p-dropdown
           id="status"
           formControlName="isActive"
           [options]="statusOptions"
-          placeholder="Select status"
+          optionLabel="label"
+          optionValue="value"
+          [placeholder]="'common.selectStatus' | translate"
           styleClass="w-full">
         </p-dropdown>
       </div>
     </div>
 
-    <div class="flex justify-content-end gap-2 mt-4">
+    <div class="flex justify-content-end gap-2 mt-4 pt-3 border-top-1 surface-border">
       <button
         pButton
         type="button"
-        label="Cancel"
-        class="p-button-text"
+        [label]="'common.cancel' | translate"
+        class="p-button-outlined p-button-secondary"
+        icon="pi pi-times"
         (click)="onClose()">
       </button>
       <button
         pButton
         type="submit"
-        label="Save"
+        [label]="mode === 'create' ? ('common.create' | translate) : ('common.update' | translate)"
+        [icon]="mode === 'create' ? 'pi pi-plus' : 'pi pi-check'"
         [disabled]="roleForm.invalid">
       </button>
     </div>

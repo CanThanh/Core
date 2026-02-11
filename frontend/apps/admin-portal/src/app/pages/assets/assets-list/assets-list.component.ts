@@ -1,6 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
@@ -8,17 +7,23 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
 import { SkeletonModule } from 'primeng/skeleton';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { AssetsApiService } from '@qlts/api-client';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AssetDialogComponent } from '../asset-dialog/asset-dialog.component';
 
 interface AssetDto {
-  assetCode: string;
+  id: string;
+  code: string;
   name: string;
   categoryName: string;
-  categoryType: string;
   purchasePrice: number;
-  currentValue: number;
+  depreciationRate: number;
   status: string;
+  purchaseDate: string;
+  location: string | null;
 }
 
 interface PagedResult<T> {
@@ -36,7 +41,6 @@ interface PagedResult<T> {
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
     TableModule,
     CardModule,
     ButtonModule,
@@ -44,8 +48,12 @@ interface PagedResult<T> {
     TagModule,
     TooltipModule,
     SkeletonModule,
-    TranslateModule
+    ConfirmDialogModule,
+    ToastModule,
+    TranslateModule,
+    AssetDialogComponent
   ],
+  providers: [ConfirmationService, MessageService],
   templateUrl: './assets-list.component.html',
   styleUrl: './assets-list.component.css'
 })
@@ -62,8 +70,14 @@ export class AssetsListComponent implements OnInit {
   loading = signal(false);
   pageSize = signal(10);
 
+  showDialog = false;
+  dialogMode: 'create' | 'edit' = 'create';
+  selectedAssetId?: string;
+
   constructor(
     private assetsApiService: AssetsApiService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
     private translate: TranslateService
   ) {}
 
@@ -83,6 +97,50 @@ export class AssetsListComponent implements OnInit {
       },
       error: () => {
         this.loading.set(false);
+      }
+    });
+  }
+
+  openCreateDialog(): void {
+    this.dialogMode = 'create';
+    this.selectedAssetId = undefined;
+    this.showDialog = true;
+  }
+
+  openEditDialog(assetId: string): void {
+    this.dialogMode = 'edit';
+    this.selectedAssetId = assetId;
+    this.showDialog = true;
+  }
+
+  onAssetSaved(): void {
+    this.showDialog = false;
+    this.loadAssets();
+  }
+
+  deleteAsset(assetId: string, assetName: string): void {
+    this.confirmationService.confirm({
+      message: this.translate.instant('common.areYouSure'),
+      header: this.translate.instant('common.confirmDelete'),
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.assetsApiService.deleteAsset(assetId).subscribe({
+          next: () => {
+            this.messageService.add({
+              severity: 'success',
+              summary: this.translate.instant('common.success'),
+              detail: this.translate.instant('assets.deleted')
+            });
+            this.loadAssets();
+          },
+          error: (error) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.translate.instant('common.error'),
+              detail: error.error?.message || this.translate.instant('common.deleteFailed')
+            });
+          }
+        });
       }
     });
   }

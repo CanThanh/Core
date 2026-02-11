@@ -2,49 +2,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1111111-1111-1111-1111-111111111111}"
 EndProject
-
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{B1111111-1111-1111-1111-111111111111}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{C1111111-1111-1111-1111-111111111111}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Common", "src\BuildingBlocks\Common\BuildingBlocks.Common.csproj", "{C2222222-2222-2222-2222-222222222222}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Database", "src\BuildingBlocks\Database\BuildingBlocks.Database.csproj", "{C3333333-3333-3333-3333-333333333333}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Logging", "src\BuildingBlocks\Logging\BuildingBlocks.Logging.csproj", "{C4444444-4444-4444-4444-444444444444}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Caching", "src\BuildingBlocks\Caching\BuildingBlocks.Caching.csproj", "{C5555555-5555-5555-5555-555555555555}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Search", "src\BuildingBlocks\Search\BuildingBlocks.Search.csproj", "{C6666666-6666-6666-6666-666666666666}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity", "src\Identity\Identity.csproj", "{D1111111-1111-1111-1111-111111111111}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "src\Authorization\Authorization.csproj", "{D2222222-2222-2222-2222-222222222222}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users", "src\Users\Users.csproj", "{D3333333-3333-3333-3333-333333333333}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assets", "src\Assets\Assets.csproj", "{D4444444-4444-4444-4444-444444444444}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "src\Inventory\Inventory.csproj", "{D5555555-5555-5555-5555-555555555555}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maintenance", "src\Maintenance\Maintenance.csproj", "{D6666666-6666-6666-6666-666666666666}"
 EndProject
-
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menus", "src\Menus\Menus.csproj", "{87652EBA-4806-9AAF-5660-D09EA33B541D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,10 +86,17 @@ Global
 		{D6666666-6666-6666-6666-666666666666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6666666-6666-6666-6666-666666666666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6666666-6666-6666-6666-666666666666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87652EBA-4806-9AAF-5660-D09EA33B541D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87652EBA-4806-9AAF-5660-D09EA33B541D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87652EBA-4806-9AAF-5660-D09EA33B541D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87652EBA-4806-9AAF-5660-D09EA33B541D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C1111111-1111-1111-1111-111111111111} = {A1111111-1111-1111-1111-111111111111}
 		{B1111111-1111-1111-1111-111111111111} = {A1111111-1111-1111-1111-111111111111}
+		{C1111111-1111-1111-1111-111111111111} = {A1111111-1111-1111-1111-111111111111}
 		{C2222222-2222-2222-2222-222222222222} = {B1111111-1111-1111-1111-111111111111}
 		{C3333333-3333-3333-3333-333333333333} = {B1111111-1111-1111-1111-111111111111}
 		{C4444444-4444-4444-4444-444444444444} = {B1111111-1111-1111-1111-111111111111}
@@ -114,5 +108,9 @@ Global
 		{D4444444-4444-4444-4444-444444444444} = {A1111111-1111-1111-1111-111111111111}
 		{D5555555-5555-5555-5555-555555555555} = {A1111111-1111-1111-1111-111111111111}
 		{D6666666-6666-6666-6666-666666666666} = {A1111111-1111-1111-1111-111111111111}
+		{87652EBA-4806-9AAF-5660-D09EA33B541D} = {A1111111-1111-1111-1111-111111111111}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDC76D4C-4630-482A-8C87-D3BA012ACD47}
 	EndGlobalSection
 EndGlobal

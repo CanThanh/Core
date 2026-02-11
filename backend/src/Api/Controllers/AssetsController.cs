@@ -1,6 +1,7 @@
 using Assets.Features.CreateAsset;
 using Assets.Features.DeleteAsset;
 using Assets.Features.GetAssetById;
+using Assets.Features.GetAssetCategories;
 using Assets.Features.GetAssets;
 using Assets.Features.UpdateAsset;
 using MediatR;
@@ -33,6 +34,23 @@ public class AssetsController : ControllerBase
         [FromQuery] string? status = null)
     {
         var query = new GetAssetsQuery(pageNumber, pageSize, searchTerm, categoryId, status);
+        var result = await _mediator.Send(query);
+
+        if (result.IsFailure)
+        {
+            return BadRequest(new { error = result.Error });
+        }
+
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Get all asset categories
+    /// </summary>
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetAssetCategories()
+    {
+        var query = new GetAssetCategoriesQuery();
         var result = await _mediator.Send(query);
 
         if (result.IsFailure)

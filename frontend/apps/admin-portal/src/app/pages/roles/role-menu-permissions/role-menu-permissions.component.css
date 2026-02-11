@@ -27,9 +27,16 @@
   padding: 0.5rem;
 }
 
-:host ::ng-deep .p-treetable .p-treetable-thead > tr > th {
-  padding: 0.75rem;
+:host ::ng-deep .p-treetable .p-treetable-thead > tr > th:first-child {
+  text-align: left;
+}
+
+:host ::ng-deep .p-treetable .p-treetable-thead > tr > th:not(:first-child) {
   text-align: center;
+}
+
+:host ::ng-deep .p-treetable .p-treetable-tbody > tr > td:first-child {
+  text-align: left;
 }
 
 :host ::ng-deep .p-treetable .p-treetable-tbody > tr > td:not(:first-child) {

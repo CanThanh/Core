@@ -1,20 +1,17 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
-import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { GroupsApiService } from '@qlts/api-client';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { GroupDialogComponent } from '../group-dialog/group-dialog.component';
 
 @Component({
   selector: 'app-groups-list',
@@ -22,17 +19,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     TableModule,
     ButtonModule,
     InputTextModule,
-    InputTextareaModule,
     TagModule,
     TooltipModule,
-    DialogModule,
     ConfirmDialogModule,
     ToastModule,
-    TranslateModule
+    TranslateModule,
+    GroupDialogComponent
   ],
   providers: [ConfirmationService, MessageService],
   templateUrl: './groups-list.component.html',
@@ -47,26 +42,18 @@ export class GroupsListComponent implements OnInit {
   pageSize = 10;
   searchTerm = '';
 
-  // Dialog for create/edit
-  displayDialog = false;
+  // Dialog state
+  showDialog = false;
   dialogMode: 'create' | 'edit' = 'create';
-  groupForm!: FormGroup;
   selectedGroupId?: string;
+  selectedGroupData?: any;
 
   constructor(
     private groupsApiService: GroupsApiService,
-    private router: Router,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private fb: FormBuilder,
     private translate: TranslateService
-  ) {
-    this.groupForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: [''],
-      isActive: [true]
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loadGroups();
@@ -103,86 +90,28 @@ export class GroupsListComponent implements OnInit {
     this.loadGroups();
   }
 
-  showCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialogMode = 'create';
-    this.groupForm.reset({ isActive: true });
     this.selectedGroupId = undefined;
-    this.displayDialog = true;
+    this.selectedGroupData = undefined;
+    this.showDialog = true;
   }
 
-  showEditDialog(group: any): void {
+  openEditDialog(group: any): void {
     this.dialogMode = 'edit';
     this.selectedGroupId = group.id;
-    this.groupForm.patchValue({
-      name: group.name,
-      description: group.description,
-      isActive: group.isActive
-    });
-    this.displayDialog = true;
+    this.selectedGroupData = group;
+    this.showDialog = true;
   }
 
-  saveGroup(): void {
-    if (this.groupForm.invalid) {
-      this.messageService.add({
-        severity: 'warn',
-        summary: this.translate.instant('common.error'),
-        detail: this.translate.instant('common.error')
-      });
-      return;
-    }
-
-    const request = {
-      name: this.groupForm.value.name,
-      description: this.groupForm.value.description || null,
-      isActive: this.groupForm.value.isActive
-    };
-
-    if (this.dialogMode === 'create') {
-      this.groupsApiService.createGroup(request).subscribe({
-        next: () => {
-          this.messageService.add({
-            severity: 'success',
-            summary: this.translate.instant('common.success'),
-            detail: this.translate.instant('groups.created')
-          });
-          this.displayDialog = false;
-          this.loadGroups();
-        },
-        error: (error) => {
-          console.error('Failed to create group:', error);
-          this.messageService.add({
-            severity: 'error',
-            summary: this.translate.instant('common.error'),
-            detail: error.error?.message || this.translate.instant('common.error')
-          });
-        }
-      });
-    } else {
-      this.groupsApiService.updateGroup(this.selectedGroupId!, request).subscribe({
-        next: () => {
-          this.messageService.add({
-            severity: 'success',
-            summary: this.translate.instant('common.success'),
-            detail: this.translate.instant('groups.updated')
-          });
-          this.displayDialog = false;
-          this.loadGroups();
-        },
-        error: (error) => {
-          console.error('Failed to update group:', error);
-          this.messageService.add({
-            severity: 'error',
-            summary: this.translate.instant('common.error'),
-            detail: error.error?.message || this.translate.instant('common.error')
-          });
-        }
-      });
-    }
+  onGroupSaved(): void {
+    this.showDialog = false;
+    this.loadGroups();
   }
 
   deleteGroup(groupId: string, groupName: string): void {
     this.confirmationService.confirm({
-      message: this.translate.instant('common.areYouSure'),
+      message: this.translate.instant('common.areYouSure', { name: groupName }),
       header: this.translate.instant('common.confirmDelete'),
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -200,7 +129,7 @@ export class GroupsListComponent implements OnInit {
             this.messageService.add({
               severity: 'error',
               summary: this.translate.instant('common.error'),
-              detail: this.translate.instant('common.error')
+              detail: this.translate.instant('common.deleteFailed')
             });
           }
         });
@@ -216,11 +145,5 @@ export class GroupsListComponent implements OnInit {
     return isActive
       ? this.translate.instant('common.active')
       : this.translate.instant('common.inactive');
-  }
-
-  getDialogHeader(): string {
-    return this.dialogMode === 'create'
-      ? this.translate.instant('groups.createGroup')
-      : this.translate.instant('groups.editGroup');
   }
 }

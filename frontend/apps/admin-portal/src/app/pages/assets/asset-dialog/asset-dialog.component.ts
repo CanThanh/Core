@@ -10,6 +10,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
 import { AssetsApiService } from '@qlts/api-client';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-asset-dialog',
@@ -23,7 +24,8 @@ import { AssetsApiService } from '@qlts/api-client';
     InputTextareaModule,
     InputNumberModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    TranslateModule
   ],
   templateUrl: './asset-dialog.component.html',
   styleUrl: './asset-dialog.component.css'
@@ -40,26 +42,34 @@ export class AssetDialogComponent implements OnInit {
   loading = signal<boolean>(false);
 
   categories = signal<any[]>([]);
-  assetStatusOptions = [
-    { label: 'Đang sử dụng', value: 'InUse' },
-    { label: 'Bảo trì', value: 'Maintenance' },
-    { label: 'Hỏng', value: 'Broken' },
-    { label: 'Đã thanh lý', value: 'Disposed' }
-  ];
-  activeStatusOptions = [
-    { label: 'Active', value: true },
-    { label: 'Inactive', value: false }
-  ];
+  assetStatusOptions: any[] = [];
+  activeStatusOptions: any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private assetsApiService: AssetsApiService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
     this.loadCategories();
+    this.updateStatusLabels();
+    this.translate.onLangChange.subscribe(() => this.updateStatusLabels());
+  }
+
+  updateStatusLabels(): void {
+    this.assetStatusOptions = [
+      { label: this.translate.instant('assets.status.InUse'), value: 'InUse' },
+      { label: this.translate.instant('assets.status.Maintenance'), value: 'Maintenance' },
+      { label: this.translate.instant('assets.status.Broken'), value: 'Broken' },
+      { label: this.translate.instant('assets.status.Disposed'), value: 'Disposed' }
+    ];
+    this.activeStatusOptions = [
+      { label: this.translate.instant('common.active'), value: true },
+      { label: this.translate.instant('common.inactive'), value: false }
+    ];
   }
 
   ngOnChanges(): void {
@@ -87,13 +97,18 @@ export class AssetDialogComponent implements OnInit {
   }
 
   loadCategories(): void {
-    // TODO: Implement API call to load categories
-    // For now, mock data
-    this.categories.set([
-      { label: 'Máy tính', value: '1' },
-      { label: 'Thiết bị văn phòng', value: '2' },
-      { label: 'Xe cộ', value: '3' }
-    ]);
+    this.assetsApiService.getCategories().subscribe({
+      next: (data) => {
+        this.categories.set(data.map((c: any) => ({ label: c.name, value: c.id })));
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('assets.loadCategoriesFailed')
+        });
+      }
+    });
   }
 
   loadAsset(): void {
@@ -116,16 +131,14 @@ export class AssetDialogComponent implements OnInit {
           isActive: asset.isActive
         });
 
-        // Disable code field in edit mode
         this.assetForm.get('code')?.disable();
-
         this.loading.set(false);
       },
       error: () => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to load asset'
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('users.loadFailed')
         });
         this.loading.set(false);
       }
@@ -141,7 +154,6 @@ export class AssetDialogComponent implements OnInit {
       depreciationRate: 0
     });
 
-    // Enable code field in create mode
     this.assetForm.get('code')?.enable();
   }
 
@@ -149,13 +161,13 @@ export class AssetDialogComponent implements OnInit {
     if (this.assetForm.invalid) {
       this.messageService.add({
         severity: 'warn',
-        summary: 'Validation Error',
-        detail: 'Please fill all required fields correctly'
+        summary: this.translate.instant('common.validationError'),
+        detail: this.translate.instant('common.fillRequired')
       });
       return;
     }
 
-    const formValue = this.assetForm.getRawValue(); // getRawValue to include disabled fields
+    const formValue = this.assetForm.getRawValue();
 
     if (this.mode === 'create') {
       const createRequest = {
@@ -174,8 +186,8 @@ export class AssetDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Asset created successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('assets.created')
           });
           this.onClose();
           this.saved.emit();
@@ -183,8 +195,8 @@ export class AssetDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.error || 'Failed to create asset'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.error || this.translate.instant('common.createFailed')
           });
         }
       });
@@ -206,8 +218,8 @@ export class AssetDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Asset updated successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('assets.updated')
           });
           this.onClose();
           this.saved.emit();
@@ -215,8 +227,8 @@ export class AssetDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.error || 'Failed to update asset'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.error || this.translate.instant('common.updateFailed')
           });
         }
       });
@@ -229,6 +241,6 @@ export class AssetDialogComponent implements OnInit {
   }
 
   getDialogHeader(): string {
-    return this.mode === 'create' ? 'Thêm Tài sản Mới' : 'Chỉnh sửa Tài sản';
+    return this.translate.instant(this.mode === 'create' ? 'assets.createAsset' : 'assets.editAsset');
   }
 }

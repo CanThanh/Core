@@ -9,6 +9,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MessageService } from 'primeng/api';
 import { UsersApiService, RolesApiService, GroupsApiService } from '@qlts/api-client';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-dialog',
@@ -22,7 +24,8 @@ import { UsersApiService, RolesApiService, GroupsApiService } from '@qlts/api-cl
     InputTextModule,
     PasswordModule,
     DropdownModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TranslateModule
   ],
   templateUrl: './user-dialog.component.html',
   styleUrl: './user-dialog.component.css'
@@ -43,6 +46,7 @@ export class UserDialogComponent implements OnInit, OnChanges {
 
   selectedRoleIds: string[] = [];
   selectedGroupIds: string[] = [];
+  initialGroupIds: string[] = [];
   statusOptions = [
     { label: 'Active', value: true },
     { label: 'Inactive', value: false }
@@ -53,12 +57,22 @@ export class UserDialogComponent implements OnInit, OnChanges {
     private usersApiService: UsersApiService,
     private rolesApiService: RolesApiService,
     private groupsApiService: GroupsApiService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
     this.loadRolesAndGroups();
+    this.updateStatusLabels();
+    this.translate.onLangChange.subscribe(() => this.updateStatusLabels());
+  }
+
+  updateStatusLabels(): void {
+    this.statusOptions = [
+      { label: this.translate.instant('common.active'), value: true },
+      { label: this.translate.instant('common.inactive'), value: false }
+    ];
   }
 
   ngOnChanges(): void {
@@ -108,19 +122,17 @@ export class UserDialogComponent implements OnInit, OnChanges {
           isActive: user.isActive
         });
 
-        // Map role names to IDs
         const roleIds = this.availableRoles().filter(r =>
           user.roles.includes(r.label)
         ).map(r => r.value);
         this.selectedRoleIds = roleIds;
 
-        // Map group names to IDs
         const groupIds = this.availableGroups().filter(g =>
           user.groups.includes(g.label)
         ).map(g => g.value);
         this.selectedGroupIds = groupIds;
+        this.initialGroupIds = [...groupIds];
 
-        // For edit mode, password is optional
         this.userForm.get('password')?.clearValidators();
         this.userForm.get('password')?.updateValueAndValidity();
 
@@ -129,8 +141,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
       error: () => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to load user'
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('users.loadFailed')
         });
         this.loading.set(false);
       }
@@ -141,8 +153,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
     this.userForm.reset({ isActive: true });
     this.selectedRoleIds = [];
     this.selectedGroupIds = [];
+    this.initialGroupIds = [];
 
-    // For create mode, password is required
     this.userForm.get('password')?.setValidators([Validators.required, Validators.minLength(6)]);
     this.userForm.get('password')?.updateValueAndValidity();
   }
@@ -151,8 +163,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
     if (this.userForm.invalid) {
       this.messageService.add({
         severity: 'warn',
-        summary: 'Validation Error',
-        detail: 'Please fill all required fields correctly'
+        summary: this.translate.instant('common.validationError'),
+        detail: this.translate.instant('common.fillRequired')
       });
       return;
     }
@@ -176,13 +188,32 @@ export class UserDialogComponent implements OnInit, OnChanges {
 
     this.usersApiService.createUser(createRequest).subscribe({
       next: (response) => {
+        const tasks$ = [];
+
         if (this.selectedRoleIds.length > 0) {
-          this.usersApiService.assignRolesToUser(response.id, this.selectedRoleIds).subscribe({
+          tasks$.push(this.usersApiService.assignRolesToUser(response.id, this.selectedRoleIds));
+        }
+
+        this.selectedGroupIds.forEach(groupId => {
+          tasks$.push(this.usersApiService.addUserToGroup(response.id, groupId));
+        });
+
+        if (tasks$.length > 0) {
+          forkJoin(tasks$).subscribe({
             next: () => {
               this.messageService.add({
                 severity: 'success',
-                summary: 'Success',
-                detail: 'User created successfully'
+                summary: this.translate.instant('common.success'),
+                detail: this.translate.instant('users.created')
+              });
+              this.onClose();
+              this.saved.emit();
+            },
+            error: () => {
+              this.messageService.add({
+                severity: 'warn',
+                summary: this.translate.instant('common.warning'),
+                detail: this.translate.instant('common.assignFailed')
               });
               this.onClose();
               this.saved.emit();
@@ -191,8 +222,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
         } else {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'User created successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('users.created')
           });
           this.onClose();
           this.saved.emit();
@@ -201,8 +232,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
       error: (error) => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: error.error?.message || 'Failed to create user'
+          summary: this.translate.instant('common.error'),
+          detail: error.error?.message || this.translate.instant('common.createFailed')
         });
       }
     });
@@ -218,12 +249,36 @@ export class UserDialogComponent implements OnInit, OnChanges {
 
     this.usersApiService.updateUser(this.userId!, updateRequest).subscribe({
       next: () => {
-        this.usersApiService.assignRolesToUser(this.userId!, this.selectedRoleIds).subscribe({
+        const groupsToAdd = this.selectedGroupIds.filter(id => !this.initialGroupIds.includes(id));
+        const groupsToRemove = this.initialGroupIds.filter(id => !this.selectedGroupIds.includes(id));
+
+        const tasks$ = [
+          this.usersApiService.assignRolesToUser(this.userId!, this.selectedRoleIds)
+        ];
+
+        groupsToAdd.forEach(groupId => {
+          tasks$.push(this.usersApiService.addUserToGroup(this.userId!, groupId));
+        });
+
+        groupsToRemove.forEach(groupId => {
+          tasks$.push(this.usersApiService.removeUserFromGroup(this.userId!, groupId));
+        });
+
+        forkJoin(tasks$).subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
-              summary: 'Success',
-              detail: 'User updated successfully'
+              summary: this.translate.instant('common.success'),
+              detail: this.translate.instant('users.updated')
+            });
+            this.onClose();
+            this.saved.emit();
+          },
+          error: () => {
+            this.messageService.add({
+              severity: 'warn',
+              summary: this.translate.instant('common.warning'),
+              detail: this.translate.instant('common.assignFailed')
             });
             this.onClose();
             this.saved.emit();
@@ -233,8 +288,8 @@ export class UserDialogComponent implements OnInit, OnChanges {
       error: (error) => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: error.error?.message || 'Failed to update user'
+          summary: this.translate.instant('common.error'),
+          detail: error.error?.message || this.translate.instant('common.updateFailed')
         });
       }
     });
@@ -246,6 +301,6 @@ export class UserDialogComponent implements OnInit, OnChanges {
   }
 
   getDialogHeader(): string {
-    return this.mode === 'create' ? 'Create New User' : 'Edit User';
+    return this.translate.instant(this.mode === 'create' ? 'users.createUser' : 'users.editUser');
   }
 }

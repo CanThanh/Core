@@ -32,7 +32,11 @@
       "Bash(curl:*)",
       "Bash(dotnet remove reference:*)",
       "Bash(find:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:adminlte.io)"
     ]
   }
 }

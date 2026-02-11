@@ -51,8 +51,8 @@
                   },
                   {
                     "type": "anyComponentStyle",
-                    "maximumWarning": "2kb",
-                    "maximumError": "4kb"
+                    "maximumWarning": "4kb",
+                    "maximumError": "8kb"
                   }
                 ],
                 "outputHashing": "all"
@@ -11649,17 +11649,17 @@
       },
       {
         "source": "admin-portal",
+        "target": "npm:@ngx-translate/core",
+        "type": "static"
+      },
+      {
+        "source": "admin-portal",
         "target": "npm:@angular/common",
         "type": "static"
       },
       {
         "source": "admin-portal",
         "target": "npm:@angular/platform-browser",
-        "type": "static"
-      },
-      {
-        "source": "admin-portal",
-        "target": "npm:@ngx-translate/core",
         "type": "static"
       },
       {
@@ -11675,6 +11675,11 @@
       {
         "source": "admin-portal",
         "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "admin-portal",
+        "target": "npm:rxjs",
         "type": "static"
       }
     ],

@@ -3,6 +3,7 @@
     "save": "Save",
     "cancel": "Cancel",
     "create": "Create",
+    "update": "Update",
     "edit": "Edit",
     "delete": "Delete",
     "search": "Search",
@@ -17,6 +18,8 @@
     "success": "Success",
     "error": "Error",
     "warning": "Warning",
+    "validationError": "Validation Error",
+    "fillRequired": "Please fill all required fields correctly",
     "confirmDelete": "Confirm Delete",
     "areYouSure": "Are you sure you want to delete \"{{name}}\"?",
     "selectStatus": "Select status",
@@ -24,7 +27,11 @@
     "namePlaceholder": "Enter name",
     "descriptionPlaceholder": "Enter description",
     "nameRequired": "Name is required (min 2 characters)",
-    "createdAt": "Created At"
+    "createdAt": "Created At",
+    "createFailed": "Failed to create",
+    "updateFailed": "Failed to update",
+    "assignFailed": "Failed to assign data",
+    "deleteFailed": "Failed to delete"
   },
   "auth": {
     "login": "Sign In",
@@ -196,7 +203,20 @@
     "enterRoleDescription": "Enter role description",
     "managePermissions": "Manage Permissions",
     "noRolesFound": "No roles found.",
-    "namePlaceholder": "Enter role name"
+    "namePlaceholder": "Enter role name",
+    "menuPermissions": "Role Menu Permissions",
+    "selectRole": "Select Role",
+    "selectRolePlaceholder": "Select a role",
+    "selectAll": "Select All",
+    "permView": "View",
+    "permCreate": "Create",
+    "permEdit": "Edit",
+    "permDelete": "Delete",
+    "savePermissions": "Save Permissions",
+    "permissionsSaved": "Permissions saved successfully",
+    "savePermissionsFailed": "Failed to save permissions",
+    "loadFailed": "Failed to load roles",
+    "loadPermissionsFailed": "Failed to load role permissions"
   },
   "assets": {
     "title": "Asset Management",
@@ -217,6 +237,8 @@
     "type": "Type",
     "currentValue": "Current Value",
     "noAssetsFound": "No assets found.",
+    "selectCategory": "Select category",
+    "loadCategoriesFailed": "Failed to load asset categories",
     "status": {
       "InUse": "In Use",
       "Maintenance": "Maintenance",

@@ -30,6 +30,10 @@ export class AssetsApiService {
     return this.http.get<PagedResult<any>>(this.baseUrl, { params });
   }
 
+  getCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/categories`);
+  }
+
   getAssetById(id: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }

@@ -3,13 +3,13 @@
   <p-confirmDialog></p-confirmDialog>
 
   <div class="card">
-    <div class="card-header flex justify-content-between align-items-center mb-4">
+    <div class="flex justify-content-between align-items-center mb-4 pb-3 border-bottom-1 surface-border">
       <h2 class="m-0">{{ 'menus.title' | translate }}</h2>
       <button
         pButton
         [label]="'menus.createMenu' | translate"
         icon="pi pi-plus"
-        (click)="showCreateDialog()"
+        (click)="openCreateDialog()"
         class="p-button-success"
       ></button>
     </div>
@@ -55,7 +55,7 @@
               pButton
               icon="pi pi-pencil"
               class="p-button-text p-button-sm p-button-info"
-              (click)="showEditDialog(rowData.id)"
+              (click)="openEditDialog(rowData)"
               [pTooltip]="'common.edit' | translate"
             ></button>
             <button
@@ -77,123 +77,14 @@
       </ng-template>
     </p-treeTable>
   </div>
-
-  <!-- Create/Edit Dialog -->
-  <p-dialog
-    [header]="getDialogHeader()"
-    [(visible)]="displayDialog"
-    [modal]="true"
-    [style]="{ width: '600px' }"
-    [draggable]="false"
-    [resizable]="false"
-  >
-    <form [formGroup]="menuForm" (ngSubmit)="saveMenu()">
-      <div class="form-field mb-3">
-        <label for="name" class="block mb-2">{{ 'menus.menuName' | translate }} <span class="text-red-500">*</span></label>
-        <input
-          id="name"
-          type="text"
-          pInputText
-          formControlName="name"
-          [placeholder]="'menus.menuNamePlaceholder' | translate"
-          class="w-full"
-        />
-        <small class="text-red-500" *ngIf="menuForm.get('name')?.invalid && menuForm.get('name')?.touched">
-          {{ 'menus.nameRequired' | translate }}
-        </small>
-      </div>
-
-      <div class="form-field mb-3">
-        <label for="icon" class="block mb-2">{{ 'menus.icon' | translate }} (PrimeNG)</label>
-        <p-dropdown
-          id="icon"
-          [options]="iconOptions"
-          formControlName="icon"
-          [placeholder]="'menus.selectIcon' | translate"
-          [showClear]="true"
-          optionLabel="label"
-          optionValue="value"
-          styleClass="w-full"
-        >
-          <ng-template let-option pTemplate="item">
-            <div class="flex align-items-center gap-2">
-              <i [class]="option.value"></i>
-              <span>{{ option.label }}</span>
-            </div>
-          </ng-template>
-        </p-dropdown>
-        <small class="text-gray-500">{{ 'menus.iconHint' | translate }}</small>
-      </div>
-
-      <div class="form-field mb-3">
-        <label for="route" class="block mb-2">{{ 'menus.routePath' | translate }}</label>
-        <input
-          id="route"
-          type="text"
-          pInputText
-          formControlName="route"
-          [placeholder]="'menus.routePlaceholder' | translate"
-          class="w-full"
-        />
-        <small class="text-gray-500">{{ 'menus.routeHint' | translate }}</small>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3 mb-3">
-        <div class="form-field">
-          <label for="displayOrder" class="block mb-2">{{ 'menus.displayOrder' | translate }} <span class="text-red-500">*</span></label>
-          <p-inputNumber
-            id="displayOrder"
-            formControlName="displayOrder"
-            [min]="0"
-            [showButtons]="true"
-            styleClass="w-full"
-          ></p-inputNumber>
-          <small class="text-gray-500">{{ 'menus.displayOrderHint' | translate }}</small>
-        </div>
-
-        <div class="form-field">
-          <label for="parentId" class="block mb-2">{{ 'menus.parentMenu' | translate }}</label>
-          <p-dropdown
-            id="parentId"
-            [options]="availableParents()"
-            formControlName="parentId"
-            [placeholder]="'menus.selectParent' | translate"
-            optionLabel="label"
-            optionValue="value"
-            [showClear]="true"
-            styleClass="w-full"
-          ></p-dropdown>
-          <small class="text-gray-500">{{ 'menus.parentHint' | translate }}</small>
-        </div>
-      </div>
-
-      <div class="form-field mb-4">
-        <div class="flex align-items-center gap-2">
-          <p-checkbox
-            inputId="isActive"
-            formControlName="isActive"
-            [binary]="true"
-          ></p-checkbox>
-          <label for="isActive" class="mb-0">{{ 'menus.active' | translate }}</label>
-        </div>
-        <small class="text-gray-500">{{ 'menus.activeHint' | translate }}</small>
-      </div>
-
-      <div class="flex justify-content-end gap-2">
-        <button
-          pButton
-          type="button"
-          [label]="'common.cancel' | translate"
-          class="p-button-text"
-          (click)="displayDialog = false"
-        ></button>
-        <button
-          pButton
-          type="submit"
-          [label]="dialogMode === 'create' ? ('common.create' | translate) : ('common.update' | translate)"
-          [disabled]="menuForm.invalid"
-        ></button>
-      </div>
-    </form>
-  </p-dialog>
 </div>
+
+<!-- Use separate dialog component -->
+<app-menu-dialog
+  [(visible)]="showDialog"
+  [mode]="dialogMode"
+  [menuId]="selectedMenuId"
+  [menuData]="selectedMenuData"
+  [availableParents]="availableParents()"
+  (saved)="onMenuSaved()">
+</app-menu-dialog>

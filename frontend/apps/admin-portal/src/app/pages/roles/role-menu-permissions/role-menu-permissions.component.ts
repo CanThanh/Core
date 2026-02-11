@@ -10,6 +10,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { TreeNode } from 'primeng/api';
 import { MenusApiService, MenuDto, RolesApiService, MenuPermissionAssignment, RoleMenuPermissionDto } from '@qlts/api-client';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface PermissionState {
   view: boolean;
@@ -37,7 +38,8 @@ interface MenuPermissionNode extends TreeNode {
     TreeTableModule,
     ButtonModule,
     CheckboxModule,
-    ToastModule
+    ToastModule,
+    TranslateModule
   ],
   providers: [MessageService],
   templateUrl: './role-menu-permissions.component.html',
@@ -52,7 +54,8 @@ export class RoleMenuPermissionsComponent implements OnInit {
   constructor(
     private rolesApiService: RolesApiService,
     private menusApiService: MenusApiService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -70,8 +73,8 @@ export class RoleMenuPermissionsComponent implements OnInit {
       error: (error) => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to load roles'
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('roles.loadFailed')
         });
         console.error('Error loading roles:', error);
       }
@@ -98,8 +101,8 @@ export class RoleMenuPermissionsComponent implements OnInit {
           error: (error) => {
             this.messageService.add({
               severity: 'error',
-              summary: 'Error',
-              detail: 'Failed to load role permissions'
+              summary: this.translate.instant('common.error'),
+              detail: this.translate.instant('roles.loadPermissionsFailed')
             });
             console.error('Error loading role permissions:', error);
             this.loading = false;
@@ -109,8 +112,8 @@ export class RoleMenuPermissionsComponent implements OnInit {
       error: (error) => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to load menus'
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('menus.loadFailed')
         });
         console.error('Error loading menus:', error);
         this.loading = false;
@@ -155,6 +158,41 @@ export class RoleMenuPermissionsComponent implements OnInit {
     return menus.map(menu => convertMenu(menu));
   }
 
+  isAllSelected(node: MenuPermissionNode): boolean {
+    const p = node.data.permissions;
+    return p.view && p.create && p.edit && p.delete;
+  }
+
+  toggleSelectAll(node: MenuPermissionNode): void {
+    const newState = !this.isAllSelected(node);
+    this.setAllPermissions(node, newState);
+
+    // If parent row, cascade to all children
+    if (node.children && node.children.length > 0) {
+      this.cascadeToChildren(node.children as MenuPermissionNode[], newState);
+    }
+  }
+
+  onPermissionChange(node: MenuPermissionNode): void {
+    // No-op for individual checkbox changes (no cascade)
+  }
+
+  private setAllPermissions(node: MenuPermissionNode, state: boolean): void {
+    node.data.permissions.view = state;
+    node.data.permissions.create = state;
+    node.data.permissions.edit = state;
+    node.data.permissions.delete = state;
+  }
+
+  private cascadeToChildren(children: MenuPermissionNode[], state: boolean): void {
+    children.forEach(child => {
+      this.setAllPermissions(child, state);
+      if (child.children && child.children.length > 0) {
+        this.cascadeToChildren(child.children as MenuPermissionNode[], state);
+      }
+    });
+  }
+
   savePermissions(): void {
     if (!this.selectedRoleId) {
       return;
@@ -194,16 +232,16 @@ export class RoleMenuPermissionsComponent implements OnInit {
       next: () => {
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Menu permissions assigned successfully'
+          summary: this.translate.instant('common.success'),
+          detail: this.translate.instant('roles.permissionsSaved')
         });
         this.loading = false;
       },
       error: (error) => {
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to assign permissions'
+          summary: this.translate.instant('common.error'),
+          detail: this.translate.instant('roles.savePermissionsFailed')
         });
         console.error('Error assigning permissions:', error);
         this.loading = false;

@@ -1,3 +1,6 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
 <div class="assets-list-container">
   <p-card>
     <ng-template pTemplate="header">
@@ -8,7 +11,12 @@
             <i class="pi pi-search"></i>
             <input type="text" pInputText [placeholder]="'common.searchPlaceholder' | translate" />
           </span>
-          <p-button [label]="'assets.createAsset' | translate" icon="pi pi-plus" severity="success"></p-button>
+          <p-button
+            [label]="'assets.createAsset' | translate"
+            icon="pi pi-plus"
+            severity="success"
+            (onClick)="openCreateDialog()">
+          </p-button>
         </div>
       </div>
     </ng-template>
@@ -26,12 +34,12 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="assetCode">{{ 'assets.assetCode' | translate }} <p-sortIcon field="assetCode"></p-sortIcon></th>
+          <th pSortableColumn="code">{{ 'assets.assetCode' | translate }} <p-sortIcon field="code"></p-sortIcon></th>
           <th pSortableColumn="name">{{ 'assets.assetName' | translate }} <p-sortIcon field="name"></p-sortIcon></th>
           <th>{{ 'assets.category' | translate }}</th>
-          <th>{{ 'assets.type' | translate }}</th>
           <th pSortableColumn="purchasePrice">{{ 'assets.purchasePrice' | translate }} <p-sortIcon field="purchasePrice"></p-sortIcon></th>
-          <th>{{ 'assets.currentValue' | translate }}</th>
+          <th>{{ 'assets.depreciationRate' | translate }}</th>
+          <th>{{ 'assets.purchaseDate' | translate }}</th>
           <th pSortableColumn="status">{{ 'common.status' | translate }} <p-sortIcon field="status"></p-sortIcon></th>
           <th style="width: 120px;">{{ 'common.actions' | translate }}</th>
         </tr>
@@ -39,12 +47,12 @@
 
       <ng-template pTemplate="body" let-asset>
         <tr>
-          <td class="font-weight-bold">{{ asset.assetCode }}</td>
+          <td class="font-weight-bold">{{ asset.code }}</td>
           <td>{{ asset.name }}</td>
           <td>{{ asset.categoryName }}</td>
-          <td>{{ asset.categoryType }}</td>
           <td class="text-right">{{ asset.purchasePrice | number:'1.0-2' }} VND</td>
-          <td class="text-right">{{ asset.currentValue | number:'1.0-2' }} VND</td>
+          <td class="text-right">{{ asset.depreciationRate | number:'1.0-2' }}%</td>
+          <td>{{ asset.purchaseDate | date:'dd/MM/yyyy' }}</td>
           <td>
             <p-tag [value]="getStatusLabel(asset.status)" [severity]="getStatusSeverity(asset.status)"></p-tag>
           </td>
@@ -56,6 +64,7 @@
                 severity="info"
                 [pTooltip]="'common.edit' | translate"
                 tooltipPosition="top"
+                (onClick)="openEditDialog(asset.id)"
               ></p-button>
               <p-button
                 icon="pi pi-trash"
@@ -63,6 +72,7 @@
                 severity="danger"
                 [pTooltip]="'common.delete' | translate"
                 tooltipPosition="top"
+                (onClick)="deleteAsset(asset.id, asset.name)"
               ></p-button>
             </div>
           </td>
@@ -88,3 +98,10 @@
     </p-table>
   </p-card>
 </div>
+
+<app-asset-dialog
+  [(visible)]="showDialog"
+  [mode]="dialogMode"
+  [assetId]="selectedAssetId"
+  (saved)="onAssetSaved()">
+</app-asset-dialog>

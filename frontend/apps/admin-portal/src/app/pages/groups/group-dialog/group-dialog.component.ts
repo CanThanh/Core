@@ -8,6 +8,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
 import { GroupsApiService } from '@qlts/api-client';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-group-dialog',
@@ -19,7 +20,8 @@ import { GroupsApiService } from '@qlts/api-client';
     ButtonModule,
     InputTextModule,
     InputTextareaModule,
-    DropdownModule
+    DropdownModule,
+    TranslateModule
   ],
   templateUrl: './group-dialog.component.html',
   styleUrl: './group-dialog.component.css'
@@ -28,6 +30,7 @@ export class GroupDialogComponent implements OnInit {
   @Input() visible = false;
   @Input() mode: 'create' | 'edit' = 'create';
   @Input() groupId?: string;
+  @Input() groupData?: any;
 
   @Output() visibleChange = new EventEmitter<boolean>();
   @Output() saved = new EventEmitter<void>();
@@ -41,16 +44,30 @@ export class GroupDialogComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private groupsApiService: GroupsApiService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.updateStatusLabels();
+    this.translate.onLangChange.subscribe(() => this.updateStatusLabels());
+  }
+
+  updateStatusLabels(): void {
+    this.statusOptions = [
+      { label: this.translate.instant('common.active'), value: true },
+      { label: this.translate.instant('common.inactive'), value: false }
+    ];
   }
 
   ngOnChanges(): void {
-    if (this.visible && this.groupId && this.mode === 'edit') {
-      this.loadGroup();
+    if (this.visible && this.mode === 'edit' && this.groupData) {
+      this.groupForm.patchValue({
+        name: this.groupData.name,
+        description: this.groupData.description,
+        isActive: this.groupData.isActive
+      });
     } else if (this.visible && this.mode === 'create') {
       this.resetForm();
     }
@@ -64,11 +81,6 @@ export class GroupDialogComponent implements OnInit {
     });
   }
 
-  loadGroup(): void {
-    // Note: We'll load from the list data passed in, or implement getGroupById in API
-    // For now, we'll need to pass the group data from parent
-  }
-
   resetForm(): void {
     this.groupForm.reset({ isActive: true });
   }
@@ -77,8 +89,8 @@ export class GroupDialogComponent implements OnInit {
     if (this.groupForm.invalid) {
       this.messageService.add({
         severity: 'warn',
-        summary: 'Validation Error',
-        detail: 'Please fill all required fields correctly'
+        summary: this.translate.instant('common.validationError'),
+        detail: this.translate.instant('common.fillRequired')
       });
       return;
     }
@@ -94,8 +106,8 @@ export class GroupDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Group created successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('groups.created')
           });
           this.onClose();
           this.saved.emit();
@@ -103,8 +115,8 @@ export class GroupDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.message || 'Failed to create group'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.message || this.translate.instant('common.createFailed')
           });
         }
       });
@@ -113,8 +125,8 @@ export class GroupDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Group updated successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('groups.updated')
           });
           this.onClose();
           this.saved.emit();
@@ -122,8 +134,8 @@ export class GroupDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.message || 'Failed to update group'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.message || this.translate.instant('common.updateFailed')
           });
         }
       });
@@ -136,15 +148,7 @@ export class GroupDialogComponent implements OnInit {
   }
 
   getDialogHeader(): string {
-    return this.mode === 'create' ? 'Create New Group' : 'Edit Group';
+    return this.translate.instant(this.mode === 'create' ? 'groups.createGroup' : 'groups.editGroup');
   }
 
-  // Method to populate form with group data from parent
-  setGroupData(group: any): void {
-    this.groupForm.patchValue({
-      name: group.name,
-      description: group.description,
-      isActive: group.isActive
-    });
-  }
 }

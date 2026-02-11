@@ -8,6 +8,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
 import { RolesApiService } from '@qlts/api-client';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-role-dialog',
@@ -19,7 +20,8 @@ import { RolesApiService } from '@qlts/api-client';
     ButtonModule,
     InputTextModule,
     InputTextareaModule,
-    DropdownModule
+    DropdownModule,
+    TranslateModule
   ],
   templateUrl: './role-dialog.component.html',
   styleUrl: './role-dialog.component.css'
@@ -41,11 +43,21 @@ export class RoleDialogComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private rolesApiService: RolesApiService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.updateStatusLabels();
+    this.translate.onLangChange.subscribe(() => this.updateStatusLabels());
+  }
+
+  updateStatusLabels(): void {
+    this.statusOptions = [
+      { label: this.translate.instant('common.active'), value: true },
+      { label: this.translate.instant('common.inactive'), value: false }
+    ];
   }
 
   ngOnChanges(): void {
@@ -86,8 +98,8 @@ export class RoleDialogComponent implements OnInit {
     if (this.roleForm.invalid) {
       this.messageService.add({
         severity: 'warn',
-        summary: 'Validation Error',
-        detail: 'Please fill all required fields correctly'
+        summary: this.translate.instant('common.validationError'),
+        detail: this.translate.instant('common.fillRequired')
       });
       return;
     }
@@ -103,8 +115,8 @@ export class RoleDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Role created successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('roles.created')
           });
           this.onClose();
           this.saved.emit();
@@ -112,8 +124,8 @@ export class RoleDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.message || 'Failed to create role'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.message || this.translate.instant('common.createFailed')
           });
         }
       });
@@ -122,8 +134,8 @@ export class RoleDialogComponent implements OnInit {
         next: () => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Role updated successfully'
+            summary: this.translate.instant('common.success'),
+            detail: this.translate.instant('roles.updated')
           });
           this.onClose();
           this.saved.emit();
@@ -131,8 +143,8 @@ export class RoleDialogComponent implements OnInit {
         error: (error) => {
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: error.error?.message || 'Failed to update role'
+            summary: this.translate.instant('common.error'),
+            detail: error.error?.message || this.translate.instant('common.updateFailed')
           });
         }
       });
@@ -145,7 +157,7 @@ export class RoleDialogComponent implements OnInit {
   }
 
   getDialogHeader(): string {
-    return this.mode === 'create' ? 'Create New Role' : 'Edit Role';
+    return this.translate.instant(this.mode === 'create' ? 'roles.createRole' : 'roles.editRole');
   }
 
   setRoleData(role: any): void {

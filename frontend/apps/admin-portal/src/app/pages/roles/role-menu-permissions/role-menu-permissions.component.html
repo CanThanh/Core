@@ -1,14 +1,14 @@
 <div class="role-menu-permissions-container">
   <p-toast></p-toast>
 
-  <p-card header="Role Menu Permissions">
+  <p-card [header]="'roles.menuPermissions' | translate">
     <div class="role-selector">
-      <label for="roleDropdown">Select Role:</label>
+      <label for="roleDropdown">{{ 'roles.selectRole' | translate }}:</label>
       <p-dropdown
         id="roleDropdown"
         [options]="roles"
         [(ngModel)]="selectedRoleId"
-        placeholder="Select a role"
+        [placeholder]="'roles.selectRolePlaceholder' | translate"
         (onChange)="onRoleChange()"
         [style]="{'width': '300px'}"
       ></p-dropdown>
@@ -18,16 +18,16 @@
       <p-treeTable
         [value]="menuNodes"
         [loading]="loading"
-        [scrollable]="true"
-        scrollHeight="600px"
+        [tableLayout]="'fixed'"
       >
         <ng-template pTemplate="header">
           <tr>
-            <th>Menu Name</th>
-            <th>View</th>
-            <th>Create</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>{{ 'menus.name' | translate }}</th>
+            <th style="width: 110px; text-align: center;">{{ 'roles.selectAll' | translate }}</th>
+            <th style="width: 90px; text-align: center;">{{ 'roles.permView' | translate }}</th>
+            <th style="width: 90px; text-align: center;">{{ 'roles.permCreate' | translate }}</th>
+            <th style="width: 90px; text-align: center;">{{ 'roles.permEdit' | translate }}</th>
+            <th style="width: 90px; text-align: center;">{{ 'roles.permDelete' | translate }}</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
@@ -36,28 +36,40 @@
               <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
               {{ rowData.name }}
             </td>
-            <td>
+            <td style="text-align: center;">
+              <p-checkbox
+                [ngModel]="isAllSelected(rowNode.node)"
+                [binary]="true"
+                [name]="'selectAll_' + rowData.menuId"
+                (onChange)="toggleSelectAll(rowNode.node)"
+              ></p-checkbox>
+            </td>
+            <td style="text-align: center;">
               <p-checkbox
                 [(ngModel)]="rowData.permissions.view"
                 [binary]="true"
+                [name]="'view_' + rowData.menuId"
               ></p-checkbox>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p-checkbox
                 [(ngModel)]="rowData.permissions.create"
                 [binary]="true"
+                [name]="'create_' + rowData.menuId"
               ></p-checkbox>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p-checkbox
                 [(ngModel)]="rowData.permissions.edit"
                 [binary]="true"
+                [name]="'edit_' + rowData.menuId"
               ></p-checkbox>
             </td>
-            <td>
+            <td style="text-align: center;">
               <p-checkbox
                 [(ngModel)]="rowData.permissions.delete"
                 [binary]="true"
+                [name]="'delete_' + rowData.menuId"
               ></p-checkbox>
             </td>
           </tr>
@@ -66,7 +78,7 @@
 
       <div class="actions">
         <p-button
-          label="Save Permissions"
+          [label]="'roles.savePermissions' | translate"
           icon="pi pi-save"
           (onClick)="savePermissions()"
           [loading]="loading"

@@ -79,14 +79,45 @@ public class GetUserMenusQueryHandler : IQueryHandler<GetUserMenusQuery, List<Me
             return Result.Success(new List<MenuDto>());
         }
 
-        // 9. Get all accessible menus with their parent relationships
-        var accessibleMenus = await _context.Set<Menu>()
-            .Where(m => accessibleMenuIds.Contains(m.Id) && m.IsActive)
+        // 9. Get all active menus to resolve parent chain
+        var allMenus = await _context.Set<Menu>()
+            .Where(m => m.IsActive)
             .OrderBy(m => m.DisplayOrder)
             .ToListAsync(cancellationToken);
 
-        // 10. Build hierarchical menu structure
-        var menuDtos = BuildMenuHierarchy(accessibleMenus);
+        // 10. Include parent menus of accessible children
+        //     (parent menus may not have direct permissions but are needed for hierarchy)
+        var allMenuDict = allMenus.ToDictionary(m => m.Id);
+        var resolvedMenuIds = new HashSet<Guid>(accessibleMenuIds);
+
+        foreach (var menuId in accessibleMenuIds)
+        {
+            // Walk up the parent chain and include all ancestors
+            if (allMenuDict.TryGetValue(menuId, out var menu))
+            {
+                var currentParentId = menu.ParentId;
+                while (currentParentId.HasValue)
+                {
+                    resolvedMenuIds.Add(currentParentId.Value);
+                    if (allMenuDict.TryGetValue(currentParentId.Value, out var parentMenu))
+                    {
+                        currentParentId = parentMenu.ParentId;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 11. Filter to only resolved menus
+        var resolvedMenus = allMenus
+            .Where(m => resolvedMenuIds.Contains(m.Id))
+            .ToList();
+
+        // 12. Build hierarchical menu structure
+        var menuDtos = BuildMenuHierarchy(resolvedMenus);
 
         return Result.Success(menuDtos);
     }

@@ -54,16 +54,21 @@ export const routes: Routes = [
         canActivate: [MenuPermissionGuard]
       },
       {
+        path: 'roles',
+        loadComponent: () => import('./pages/roles/roles-list/roles-list.component').then(m => m.RolesListComponent),
+        canActivate: [MenuPermissionGuard]
+      },
+      {
+        path: 'roles/menu-permissions',
+        loadComponent: () => import('./pages/roles/role-menu-permissions/role-menu-permissions.component').then(m => m.RoleMenuPermissionsComponent)
+      },
+      {
         path: 'menus',
         loadComponent: () => import('./pages/menus/menus-list/menus-list.component').then(m => m.MenusListComponent)
       },
       {
         path: 'menus/:menuId/permissions',
         loadComponent: () => import('./pages/menus/menu-permissions-setup/menu-permissions-setup.component').then(m => m.MenuPermissionsSetupComponent)
-      },
-      {
-        path: 'roles/menu-permissions',
-        loadComponent: () => import('./pages/roles/role-menu-permissions/role-menu-permissions.component').then(m => m.RoleMenuPermissionsComponent)
       }
     ]
   },

@@ -5,89 +5,90 @@
   [style]="{ width: '700px' }"
   [draggable]="false"
   [resizable]="false"
-  (onHide)="onClose()">
+  (onHide)="onClose()"
+  styleClass="dialog-modern">
 
   <form [formGroup]="assetForm" (ngSubmit)="onSave()">
     <div class="p-fluid">
-      <div class="form-grid">
+      <div class="formgrid grid">
         <div class="field col-6">
-          <label for="code">Mã tài sản *</label>
+          <label for="code">{{ 'assets.assetCode' | translate }} <span class="p-error">*</span></label>
           <input
             pInputText
             id="code"
             formControlName="code"
-            placeholder="Nhập mã tài sản"
             [class.ng-invalid]="assetForm.get('code')?.invalid && assetForm.get('code')?.touched" />
           <small class="p-error" *ngIf="assetForm.get('code')?.invalid && assetForm.get('code')?.touched">
-            Mã tài sản là bắt buộc
+            {{ 'validation.required' | translate }}
           </small>
         </div>
 
         <div class="field col-6">
-          <label for="name">Tên tài sản *</label>
+          <label for="name">{{ 'assets.assetName' | translate }} <span class="p-error">*</span></label>
           <input
             pInputText
             id="name"
             formControlName="name"
-            placeholder="Nhập tên tài sản"
             [class.ng-invalid]="assetForm.get('name')?.invalid && assetForm.get('name')?.touched" />
           <small class="p-error" *ngIf="assetForm.get('name')?.invalid && assetForm.get('name')?.touched">
-            Tên tài sản là bắt buộc
+            {{ 'validation.required' | translate }}
           </small>
         </div>
       </div>
 
-      <div class="form-grid">
+      <div class="formgrid grid">
         <div class="field col-6">
-          <label for="categoryId">Danh mục *</label>
+          <label for="categoryId">{{ 'assets.category' | translate }} <span class="p-error">*</span></label>
           <p-dropdown
             id="categoryId"
             formControlName="categoryId"
             [options]="categories()"
-            placeholder="Chọn danh mục"
+            optionLabel="label"
+            optionValue="value"
             [showClear]="true"
+            [placeholder]="'assets.selectCategory' | translate"
             styleClass="w-full">
           </p-dropdown>
           <small class="p-error" *ngIf="assetForm.get('categoryId')?.invalid && assetForm.get('categoryId')?.touched">
-            Danh mục là bắt buộc
+            {{ 'validation.required' | translate }}
           </small>
         </div>
 
         <div class="field col-6" *ngIf="mode === 'edit'">
-          <label for="status">Trạng thái *</label>
+          <label for="status">{{ 'common.status' | translate }} <span class="p-error">*</span></label>
           <p-dropdown
             id="status"
             formControlName="status"
             [options]="assetStatusOptions"
-            placeholder="Chọn trạng thái"
+            optionLabel="label"
+            optionValue="value"
+            [placeholder]="'common.selectStatus' | translate"
             styleClass="w-full">
           </p-dropdown>
         </div>
       </div>
 
-      <div class="form-grid">
+      <div class="formgrid grid">
         <div class="field col-6">
-          <label for="manufacturer">Nhà sản xuất</label>
+          <label for="manufacturer">{{ 'assets.manufacturer' | translate }}</label>
           <input
             pInputText
             id="manufacturer"
-            formControlName="manufacturer"
-            placeholder="Nhập nhà sản xuất" />
+            formControlName="manufacturer" />
         </div>
 
         <div class="field col-6">
-          <label for="serialNumber">Số serial</label>
+          <label for="serialNumber">{{ 'assets.serialNumber' | translate }}</label>
           <input
             pInputText
             id="serialNumber"
-            formControlName="serialNumber"
-            placeholder="Nhập số serial" />
+            formControlName="serialNumber" />
         </div>
       </div>
 
-      <div class="form-grid">
+      <div class="formgrid grid">
         <div class="field col-6">
-          <label for="purchasePrice">Giá mua (VND) *</label>
+          <label for="purchasePrice">{{ 'assets.purchasePrice' | translate }} (VND) <span class="p-error">*</span></label>
           <p-inputNumber
             id="purchasePrice"
             formControlName="purchasePrice"
@@ -100,7 +101,7 @@
         </div>
 
         <div class="field col-6">
-          <label for="purchaseDate">Ngày mua *</label>
+          <label for="purchaseDate">{{ 'assets.purchaseDate' | translate }} <span class="p-error">*</span></label>
           <p-calendar
             id="purchaseDate"
             formControlName="purchaseDate"
@@ -111,9 +112,9 @@
         </div>
       </div>
 
-      <div class="form-grid">
+      <div class="formgrid grid">
         <div class="field col-6">
-          <label for="depreciationRate">Tỷ lệ khấu hao (%) *</label>
+          <label for="depreciationRate">{{ 'assets.depreciationRate' | translate }} (%) <span class="p-error">*</span></label>
           <p-inputNumber
             id="depreciationRate"
             formControlName="depreciationRate"
@@ -124,39 +125,42 @@
         </div>
 
         <div class="field col-6">
-          <label for="location">Vị trí</label>
+          <label for="location">{{ 'assets.location' | translate }}</label>
           <input
             pInputText
             id="location"
-            formControlName="location"
-            placeholder="Nhập vị trí" />
+            formControlName="location" />
         </div>
       </div>
 
       <div class="field" *ngIf="mode === 'edit'">
-        <label for="isActive">Status</label>
+        <label for="isActive">{{ 'common.status' | translate }}</label>
         <p-dropdown
           id="isActive"
           formControlName="isActive"
           [options]="activeStatusOptions"
-          placeholder="Select status"
+          optionLabel="label"
+          optionValue="value"
+          [placeholder]="'common.selectStatus' | translate"
           styleClass="w-full">
         </p-dropdown>
       </div>
     </div>
 
-    <div class="flex justify-content-end gap-2 mt-4">
+    <div class="flex justify-content-end gap-2 mt-4 pt-3 border-top-1 surface-border">
       <button
         pButton
         type="button"
-        label="Hủy"
-        class="p-button-text"
+        [label]="'common.cancel' | translate"
+        class="p-button-outlined p-button-secondary"
+        icon="pi pi-times"
         (click)="onClose()">
       </button>
       <button
         pButton
         type="submit"
-        label="Lưu"
+        [label]="mode === 'create' ? ('common.create' | translate) : ('common.update' | translate)"
+        [icon]="mode === 'create' ? 'pi pi-plus' : 'pi pi-check'"
         [disabled]="assetForm.invalid">
       </button>
     </div>

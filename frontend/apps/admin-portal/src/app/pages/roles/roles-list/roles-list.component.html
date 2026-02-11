@@ -1,7 +1,17 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
 <div class="card">
   <div class="flex justify-content-between align-items-center mb-4">
     <h2>{{ 'roles.title' | translate }}</h2>
-    <button pButton type="button" [label]="'roles.createRole' | translate" icon="pi pi-plus" (click)="showCreateDialog()"></button>
+    <button
+      pButton
+      type="button"
+      [label]="'roles.createRole' | translate"
+      icon="pi pi-plus"
+      class="p-button-success"
+      (click)="openCreateDialog()">
+    </button>
   </div>
 
   <p-table
@@ -36,7 +46,7 @@
             icon="pi pi-key"
             class="p-button-rounded p-button-text p-button-info mr-2"
             [pTooltip]="'roles.managePermissions' | translate"
-            (click)="managePermissions(role.id)">
+            (click)="managePermissions()">
           </button>
           <button
             pButton
@@ -44,7 +54,7 @@
             icon="pi pi-pencil"
             class="p-button-rounded p-button-text p-button-success mr-2"
             [pTooltip]="'common.edit' | translate"
-            (click)="showEditDialog(role)">
+            (click)="openEditDialog(role)">
           </button>
           <button
             pButton
@@ -66,67 +76,9 @@
   </p-table>
 </div>
 
-<p-dialog
-  [(visible)]="displayDialog"
-  [header]="getDialogHeader()"
-  [modal]="true"
-  [style]="{ width: '500px' }"
-  [draggable]="false"
-  [resizable]="false">
-
-  <form [formGroup]="roleForm" (ngSubmit)="saveRole()">
-    <div class="p-fluid">
-      <div class="field">
-        <label for="name">{{ 'common.name' | translate }} *</label>
-        <input
-          pInputText
-          id="name"
-          formControlName="name"
-          [placeholder]="'roles.namePlaceholder' | translate"
-          [class.ng-invalid]="roleForm.get('name')?.invalid && roleForm.get('name')?.touched" />
-        <small class="p-error" *ngIf="roleForm.get('name')?.invalid && roleForm.get('name')?.touched">
-          {{ 'common.nameRequired' | translate }}
-        </small>
-      </div>
-
-      <div class="field">
-        <label for="description">{{ 'common.description' | translate }}</label>
-        <textarea
-          pInputTextarea
-          id="description"
-          formControlName="description"
-          [placeholder]="'common.descriptionPlaceholder' | translate"
-          rows="3">
-        </textarea>
-      </div>
-
-      <div class="field-checkbox" *ngIf="dialogMode === 'edit'">
-        <p-checkbox
-          formControlName="isActive"
-          [binary]="true"
-          inputId="isActive">
-        </p-checkbox>
-        <label for="isActive">{{ 'common.active' | translate }}</label>
-      </div>
-    </div>
-
-    <div class="flex justify-content-end gap-2 mt-4">
-      <button
-        pButton
-        type="button"
-        [label]="'common.cancel' | translate"
-        class="p-button-text"
-        (click)="displayDialog = false">
-      </button>
-      <button
-        pButton
-        type="submit"
-        [label]="'common.save' | translate"
-        [disabled]="roleForm.invalid">
-      </button>
-    </div>
-  </form>
-</p-dialog>
-
-<p-confirmDialog></p-confirmDialog>
-<p-toast></p-toast>
+<app-role-dialog
+  [(visible)]="showDialog"
+  [mode]="dialogMode"
+  [roleId]="selectedRoleId"
+  (saved)="onRoleSaved()">
+</app-role-dialog>
