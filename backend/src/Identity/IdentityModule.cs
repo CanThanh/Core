@@ -1,4 +1,5 @@
 using FluentValidation;
+using BuildingBlocks.Messaging;
 using Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;

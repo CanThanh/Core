@@ -46,6 +46,16 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.LastLoginAt)
             .IsRequired(false);
 
+        builder.Property(u => u.IsEmailVerified)
+            .HasDefaultValue(false);
+
+        builder.Property(u => u.EmailVerificationToken)
+            .HasMaxLength(500)
+            .IsRequired(false);
+
+        builder.Property(u => u.EmailVerificationTokenExpiresAt)
+            .IsRequired(false);
+
         builder.HasMany(u => u.RefreshTokens)
             .WithOne(rt => rt.User)
             .HasForeignKey(rt => rt.UserId)

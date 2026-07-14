@@ -4,6 +4,7 @@ using BuildingBlocks.Caching.Extensions;
 using BuildingBlocks.Database;
 using BuildingBlocks.Database.Extensions;
 using BuildingBlocks.Logging.Extensions;
+using BuildingBlocks.Messaging.Extensions;
 using BuildingBlocks.Search.Extensions;
 using Identity;
 using Menus;
@@ -63,6 +64,9 @@ builder.Services.AddRedisCache(builder.Configuration);
 
 // Add Elasticsearch
 builder.Services.AddElasticsearch(builder.Configuration);
+
+// Add RabbitMQ Messaging
+builder.Services.AddRabbitMq(builder.Configuration);
 
 // Add Modules
 builder.Services.AddIdentityModule(builder.Configuration);

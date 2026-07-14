@@ -42,6 +42,11 @@ public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponse>
             return Result.Failure<LoginResponse>("User account is deactivated");
         }
 
+        if (!user.IsEmailVerified)
+        {
+            return Result.Failure<LoginResponse>("Email is not verified. Please check your email for the verification link or request a new one.");
+        }
+
         // Get user roles (will be implemented in Authorization module)
         var roles = new List<string> { "User" }; // Default role
 

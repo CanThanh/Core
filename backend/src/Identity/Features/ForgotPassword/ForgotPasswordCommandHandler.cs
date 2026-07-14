@@ -2,8 +2,8 @@ using System.Security.Cryptography;
 using BuildingBlocks.Common.Abstractions;
 using BuildingBlocks.Common.Results;
 using BuildingBlocks.Database;
+using BuildingBlocks.Messaging;
 using Identity.Entities;
-using Identity.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -13,16 +13,16 @@ public class ForgotPasswordCommandHandler : ICommandHandler<ForgotPasswordComman
 {
     private readonly ApplicationDbContext _context;
     private readonly IConfiguration _configuration;
-    private readonly IEmailService _emailService;
+    private readonly IEmailPublisher _emailPublisher;
 
     public ForgotPasswordCommandHandler(
         ApplicationDbContext context,
         IConfiguration configuration,
-        IEmailService emailService)
+        IEmailPublisher emailPublisher)
     {
         _context = context;
         _configuration = configuration;
-        _emailService = emailService;
+        _emailPublisher = emailPublisher;
     }
 
     public async Task<Result<ForgotPasswordResponse>> Handle(
@@ -54,18 +54,17 @@ public class ForgotPasswordCommandHandler : ICommandHandler<ForgotPasswordComman
         _context.Set<PasswordResetToken>().Add(resetTokenEntity);
         await _context.SaveChangesAsync(cancellationToken);
 
-        // Send email with reset link
+        // Publish email to RabbitMQ for async sending
         var resetLink = $"{_configuration["App:FrontendUrl"]}/reset-password?token={resetToken}&email={user.Email}";
 
         try
         {
-            await _emailService.SendPasswordResetEmailAsync(user.Email, user.FullName, resetLink, cancellationToken);
+            await _emailPublisher.PublishPasswordResetEmailAsync(user.Email, user.FullName, resetLink, cancellationToken);
         }
         catch (Exception ex)
         {
             // Log error but don't fail the request (security: don't reveal if email failed)
-            Console.WriteLine($"Failed to send email to {user.Email}: {ex.Message}");
-            // In development, log the token
+            Console.WriteLine($"Failed to publish email to queue for {user.Email}: {ex.Message}");
             Console.WriteLine($"Password Reset Token for {user.Email}: {resetToken}");
             Console.WriteLine($"Reset Link: {resetLink}");
         }

@@ -3,6 +3,7 @@ using Identity.Features.Login;
 using Identity.Features.RefreshToken;
 using Identity.Features.Register;
 using Identity.Features.ResetPassword;
+using Identity.Features.VerifyEmail;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -88,6 +89,38 @@ public class AuthController : ControllerBase
     /// </summary>
     [HttpPost("reset-password")]
     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        if (result.IsFailure)
+        {
+            return BadRequest(new { error = result.Error });
+        }
+
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Verify email address using verification token
+    /// </summary>
+    [HttpPost("verify-email")]
+    public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        if (result.IsFailure)
+        {
+            return BadRequest(new { error = result.Error });
+        }
+
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Resend email verification link
+    /// </summary>
+    [HttpPost("resend-verification")]
+    public async Task<IActionResult> ResendVerification([FromBody] ResendVerificationCommand command)
     {
         var result = await _mediator.Send(command);
 

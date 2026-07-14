@@ -1,8 +1,9 @@
-namespace Identity.Services;
+namespace BuildingBlocks.Messaging;
 
 /// <summary>
-/// Email service interface for sending transactional emails
-/// TODO: Implement using SendGrid, AWS SES, or SMTP
+/// Email service interface for sending transactional emails.
+/// Placed in BuildingBlocks.Messaging so the EmailConsumerService can reference it directly
+/// without reflection. Implementation lives in Identity module.
 /// </summary>
 public interface IEmailService
 {

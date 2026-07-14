@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mail;
+using BuildingBlocks.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 

@@ -22,6 +22,7 @@
     <ProjectReference Include="..\BuildingBlocks\Logging\BuildingBlocks.Logging.csproj" />
     <ProjectReference Include="..\BuildingBlocks\Caching\BuildingBlocks.Caching.csproj" />
     <ProjectReference Include="..\BuildingBlocks\Search\BuildingBlocks.Search.csproj" />
+    <ProjectReference Include="..\BuildingBlocks\Messaging\BuildingBlocks.Messaging.csproj" />
     <ProjectReference Include="..\Identity\Identity.csproj" />
     <ProjectReference Include="..\Authorization\Authorization.csproj" />
     <ProjectReference Include="..\Users\Users.csproj" />
